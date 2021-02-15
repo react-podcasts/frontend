@@ -1,0 +1,12 @@
+/* Page */
+
+.page {
+  font-family: sans-serif;
+  color: var(--black);
+}
+
+/* Body */
+
+.page__body {
+  margin: 0;
+}
