@@ -1,8 +1,9 @@
 import React from 'react';
+import Search from '../search';
 
 const App = () => {
   return (
-    <h1>React Podcasts</h1>
+    <Search />
   );
 };
 
