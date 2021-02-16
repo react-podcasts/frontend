@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { findPodcasts } from '../../actions/search';
+import { findPodcasts, clearSearchTerm } from '../../actions/search';
 import { ReactComponent as SearchIcon } from './search.svg';
 import { ReactComponent as SpinnerIcon } from './spinner.svg';
+import { ReactComponent as CloseIcon } from './close.svg';
 import './search.css';
 
 const Search = () => {
@@ -22,6 +23,10 @@ const Search = () => {
   const handleChange = (event) => {
     const inputValue = event.target.value;
     getPodcasts(inputValue);
+  };
+
+  const handleClear = () => {
+    dispatch(clearSearchTerm());
   };
 
   return (
@@ -54,6 +59,21 @@ const Search = () => {
               height="18"
               aria-hidden="true"
             />
+          }
+          { term.length > 0 &&
+            <button
+              className="search__clear"
+              type="button"
+              aria-label="Clear field"
+              onClick={handleClear}
+            >
+              <CloseIcon
+                className="search__icon-close"
+                width="18"
+                height="18"
+                aria-hidden="true"
+              />
+            </button>
           }
         </div>
       </form>

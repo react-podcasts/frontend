@@ -55,6 +55,38 @@
   stroke: var(--black);
 }
 
+/* Clear */
+
+.search__clear {
+  position: absolute;
+  top: 0;
+  right: -11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Icon Close */
+
+.search__icon-close {
+  display: block;
+  stroke: var(--black);
+  stroke-width: 2px;
+  fill: none;
+}
+
+.search__clear:hover .search__icon-close {
+  stroke: #8c8c8c;
+}
+
 /* Menu */
 
 .search__menu {

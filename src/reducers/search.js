@@ -1,4 +1,4 @@
-import { FETCH_PODCASTS_REQUEST, FETCH_PODCASTS_FAILURE, FETCH_PODCASTS_SUCCESS } from '../types/search';
+import * as types from '../types/search';
 
 const initialState = {
   loading: false,
@@ -9,7 +9,7 @@ const initialState = {
 
 export const search = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PODCASTS_REQUEST:
+    case types.FETCH_PODCASTS_REQUEST:
       return {
         ...state,
         loading: true,
@@ -17,20 +17,22 @@ export const search = (state = initialState, action) => {
         term: action.term,
         results: []
       };
-    case FETCH_PODCASTS_FAILURE:
+    case types.FETCH_PODCASTS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error,
         results: []
       };
-    case FETCH_PODCASTS_SUCCESS:
+    case types.FETCH_PODCASTS_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
         results: action.data
       };
+    case types.CLEAR_SEARCH_TERM:
+      return initialState;
     default:
       return state;
   }
