@@ -1,9 +1,9 @@
 import React from 'react';
-import Search from '../search';
+import Header from '../header';
 
 const App = () => {
   return (
-    <Search />
+    <Header />
   );
 };
 
