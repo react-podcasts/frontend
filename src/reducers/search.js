@@ -9,7 +9,7 @@ const initialState = {
 
 export const search = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCH_PODCASTS_REQUEST:
+    case types.FETCH_SEARCH_REQUEST:
       return {
         ...state,
         loading: true,
@@ -17,14 +17,14 @@ export const search = (state = initialState, action) => {
         term: action.term,
         results: []
       };
-    case types.FETCH_PODCASTS_FAILURE:
+    case types.FETCH_SEARCH_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error,
         results: []
       };
-    case types.FETCH_PODCASTS_SUCCESS:
+    case types.FETCH_SEARCH_SUCCESS:
       return {
         ...state,
         loading: false,

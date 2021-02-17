@@ -1,4 +1,4 @@
-const baseUrl = 'https://itunes.apple.com/search';
+const baseUrl = 'https://itunes.apple.com/';
 
 const transformPodcastData = (podcast) => {
   return {
@@ -6,6 +6,13 @@ const transformPodcastData = (podcast) => {
     title: podcast.trackName,
     author: podcast.artistName,
     coverUrl60: podcast.artworkUrl60
+  };
+};
+
+const transformFeedData = (podcast) => {
+  return {
+    feed: podcast.feedUrl,
+    coverUrl600: podcast.artworkUrl600
   };
 };
 
@@ -17,10 +24,15 @@ const fetchData = async (url) => {
     throw new Error('Podcasts not found');
   }
 
-  return data.results.map(transformPodcastData);
+  return data.results;
+};
+
+export const fetchDataById = async (podcastId) => {
+  const data = await fetchData(`${baseUrl}lookup?id=${podcastId}`);
+  return transformFeedData(data[0]);
 };
 
 export const fetchPodcasts = async (term) => {
-  const podcasts = await fetchData(`${baseUrl}?term=${term}&entity=podcast&country=RU`);
-  return podcasts;
+  const podcasts = await fetchData(`${baseUrl}search?term=${term}&entity=podcast&country=RU`);
+  return podcasts.map(transformPodcastData);
 };

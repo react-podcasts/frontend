@@ -1,0 +1,34 @@
+/* Podcast Info */
+
+.podcast-info {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  column-gap: 32px;
+}
+
+/* Title */
+
+.podcast-info__title {
+  margin: 0;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.02em;
+}
+
+/* Author */
+
+.podcast-info__author {
+  margin: 0;
+  margin-bottom: 16px;
+  color: #8c8c8c;
+}
+
+/* Description */
+
+.podcast-info__description {
+  margin: 0;
+  font-size: 15px;
+  line-height: 24px;
+}

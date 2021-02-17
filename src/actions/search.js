@@ -1,18 +1,18 @@
 import { fetchPodcasts } from '../services/search';
 import * as types from '../types/search';
 
-const podcastsRequested = (term) => ({
-  type: types.FETCH_PODCASTS_REQUEST,
+const searchRequested = (term) => ({
+  type: types.FETCH_SEARCH_REQUEST,
   term
 });
 
-const podcastsError = (error) => ({
-  type: types.FETCH_PODCASTS_FAILURE,
+const searchError = (error) => ({
+  type: types.FETCH_SEARCH_FAILURE,
   error
 });
 
-const podcastsLoaded = (data) => ({
-  type: types.FETCH_PODCASTS_SUCCESS,
+const searchLoaded = (data) => ({
+  type: types.FETCH_SEARCH_SUCCESS,
   data
 });
 
@@ -21,8 +21,8 @@ export const clearSearchTerm = () => ({
 });
 
 export const findPodcasts = (term) => (dispatch) => {
-  dispatch(podcastsRequested(term));
+  dispatch(searchRequested(term));
   fetchPodcasts(term)
-    .then(data => dispatch(podcastsLoaded(data)))
-    .catch(error => dispatch(podcastsError(error)));
+    .then(data => dispatch(searchLoaded(data)))
+    .catch(error => dispatch(searchError(error)));
 };
