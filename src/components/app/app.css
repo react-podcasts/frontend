@@ -1,0 +1,9 @@
+/* Main */
+
+.app__main {
+  max-width: 954px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+}
