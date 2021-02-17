@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findPodcasts, clearSearchTerm } from '../../actions/search';
-import { ReactComponent as SearchIcon } from './search.svg';
-import { ReactComponent as SpinnerIcon } from './spinner.svg';
-import { ReactComponent as CloseIcon } from './close.svg';
+import SearchForm from './search-form';
+import SearchList from './search-list';
+import SearchError from './search-error';
 import './search.css';
 
 const Search = () => {
@@ -31,78 +31,22 @@ const Search = () => {
 
   return (
     <div className="search">
-      <form onSubmit={handleSubmit}>
-        <div className="search__field">
-          <label className="visually-hidden" htmlFor="search">Find podcasts</label>
-          <input
-            className="search__input"
-            id="search"
-            type="text"
-            value={term}
-            onChange={handleChange}
-            onFocus={() => setShowResults(true)}
-            onBlur={() => setShowResults(false)}
-            placeholder="Find podcasts"
-          />
-          { !loading &&
-            <SearchIcon
-              className="search__icon-search"
-              width="18"
-              height="18"
-              aria-hidden="true"
-            />
-          }
-          { loading &&
-            <SpinnerIcon
-              className="search__icon-spinner"
-              width="18"
-              height="18"
-              aria-hidden="true"
-            />
-          }
-          { term.length > 0 &&
-            <button
-              className="search__clear"
-              type="button"
-              aria-label="Clear field"
-              onClick={handleClear}
-            >
-              <CloseIcon
-                className="search__icon-close"
-                width="18"
-                height="18"
-                aria-hidden="true"
-              />
-            </button>
-          }
-        </div>
-      </form>
+      <SearchForm
+        term={term}
+        loading={loading}
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        onClear={handleClear}
+        onFocus={() => setShowResults(true)}
+        onBlur={() => setShowResults(false)}
+      />
       { showResults && term.length > 0 &&
-        <div className="search__menu">
+        <div className="search__popup">
           { error &&
-            <div className="search__error">
-              <h3 className="search__error-title">No podcasts found</h3>
-              <p className="search__error-text">Try more general, or different, keywords</p>
-            </div>
+            <SearchError />
           }
           { results.length > 0 &&
-            <ul className="search__list">
-              {
-                results.map(({ id, title, author, coverUrl60 }) => {
-                  return (
-                    <li key={id} className="search__item">
-                      <a className="search__link" href="/">
-                        <img className="search__cover" src={coverUrl60} alt={title}/>
-                        <div>
-                          <h4 className="search__title">{title}</h4>
-                          <p className="search__author">{author}</p>
-                        </div>
-                      </a>
-                    </li>
-                  );
-                })
-              }
-            </ul>
+            <SearchList results={results} />
           }
         </div>
       }
