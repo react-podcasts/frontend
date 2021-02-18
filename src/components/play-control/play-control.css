@@ -1,0 +1,40 @@
+/* Play Control */
+
+.play-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #3a40dd;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.play-control:hover {
+  background-color: #3a40dd;
+}
+
+/* Icon */
+
+.play-control__icon {
+  fill: #3a40dd;
+  stroke: #3a40dd;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.play-control:hover .play-control__icon {
+  fill: var(--white);
+  stroke: var(--white);
+}
+
+/* Play Icon */
+
+.play-control__icon-play {
+  margin-left: 2px;
+}

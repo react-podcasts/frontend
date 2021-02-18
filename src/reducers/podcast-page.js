@@ -1,7 +1,7 @@
 import * as types from '../types/podcast-page';
 
 const initialState = {
-  loading: false,
+  loading: true,
   error: null,
   data: {}
 };

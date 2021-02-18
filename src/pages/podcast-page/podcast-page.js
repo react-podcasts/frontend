@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getPodcastPageData } from '../../actions/podcast-page';
 import PodcastInfo from '../../components/podcast-info';
+import EpisodesList from '../../components/episodes-list';
 
 const PodcastPage = () => {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector(state => state.podcastPage);
-  const { coverUrl600, title, author, summary } = data;
+  const { coverUrl600, title, author, summary, episodes } = data;
   const { podcastId } = useParams();
 
   useEffect(() => {
@@ -27,12 +28,15 @@ const PodcastPage = () => {
   }
 
   return (
-    <PodcastInfo
-      coverUrl600={coverUrl600}
-      title={title}
-      author={author}
-      summary={summary}
-    />
+    <>
+      <PodcastInfo
+        coverUrl600={coverUrl600}
+        title={title}
+        author={author}
+        summary={summary}
+      />
+      <EpisodesList episodes={episodes} />
+    </>
   );
 };
 

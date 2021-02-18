@@ -1,0 +1,46 @@
+/* List */
+
+.episodes-list {
+  margin: 0;
+  padding: 32px 0;
+  list-style: none;
+}
+
+/* Item */
+
+.episodes-list__item {
+  display: grid;
+  grid-template-columns: min-content 1fr 120px 120px;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.episodes-list__item:not(:first-child) {
+  margin-top: -1px;
+}
+
+/* Title */
+
+.episodes-list__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* Duration */
+
+.episodes-list__duration {
+  text-align: right;
+  color: #8c8c8c;
+}
+
+/* Published */
+
+.episodes-list__published {
+  color: #8c8c8c;
+}
