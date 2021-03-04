@@ -4,7 +4,7 @@ import { ReactComponent as PlayIcon } from './play.svg';
 import { ReactComponent as PauseIcon } from './pause.svg';
 import './play-control.css';
 
-const PlayControl = ({ type = 'play', theme }) => {
+const PlayControl = ({ type = 'play', theme, onClick }) => {
   const Icon = type === 'play' ? PlayIcon : PauseIcon;
   const playControlClass = classNames('play-control', {
     'play-control--theme-fill': theme === 'fill'
@@ -18,6 +18,7 @@ const PlayControl = ({ type = 'play', theme }) => {
     <button
       className={playControlClass}
       type="button"
+      onClick={onClick}
       aria-label={label}
     >
       <Icon

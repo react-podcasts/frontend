@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getPodcastPageData } from '../../actions/podcast-page';
+import { loadEpisodeData } from '../../actions/player';
 import PodcastInfo from '../../components/podcast-info';
 import EpisodesList from '../../components/episodes-list';
 
@@ -14,6 +15,19 @@ const PodcastPage = () => {
   useEffect(() => {
     dispatch(getPodcastPageData(podcastId));
   }, [dispatch, podcastId]);
+
+  const onPlayEpisode = (episodeId) => {
+    const episode = episodes.find(e => e.id === episodeId);
+    const episodeData = {
+      src: episode.url,
+      duration: episode.duration,
+      title: episode.title,
+      coverUrl600,
+      author
+    };
+
+    dispatch(loadEpisodeData(episodeData));
+  };
 
   if (error) {
     return (
@@ -35,7 +49,10 @@ const PodcastPage = () => {
         author={author}
         summary={summary}
       />
-      <EpisodesList episodes={episodes} />
+      <EpisodesList
+        episodes={episodes}
+        onPlay={onPlayEpisode}
+      />
     </>
   );
 };
