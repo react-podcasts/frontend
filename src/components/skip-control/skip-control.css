@@ -1,0 +1,25 @@
+/* Skip */
+
+.skip-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Skip Icon */
+
+.skip-control__icon {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

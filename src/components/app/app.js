@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../header';
+import Player from '../player';
 import PodcastPage from '../../pages/podcast-page';
 import './app.css';
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/starred" render={() => <p>Starred Page</p>} />
         </Switch>
       </main>
+      <Player />
     </div>
   );
 };

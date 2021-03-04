@@ -38,3 +38,17 @@
 .play-control__icon-play {
   margin-left: 2px;
 }
+
+/* Theme Fill */
+
+.play-control--theme-fill,
+.play-control--theme-fill:hover {
+  border-color: var(--white);
+  background-color: var(--white);
+}
+
+.play-control--theme-fill .play-control__icon,
+.play-control--theme-fill:hover .play-control__icon {
+  fill: var(--black);
+  stroke: var(--black);
+}

@@ -1,31 +1,31 @@
 import React from 'react';
+import classNames from 'classnames';
 import { ReactComponent as PlayIcon } from './play.svg';
 import { ReactComponent as PauseIcon } from './pause.svg';
 import './play-control.css';
 
-const PlayControl = ({ type = 'play' }) => {
+const PlayControl = ({ type = 'play', theme }) => {
+  const Icon = type === 'play' ? PlayIcon : PauseIcon;
+  const playControlClass = classNames('play-control', {
+    'play-control--theme-fill': theme === 'fill'
+  });
+  const playControlIconClass = classNames('play-control__icon', {
+    'play-control__icon-play': type === 'play'
+  });
+  const label = `${type === 'play' ? 'Play' : 'Pause'} episode`;
+
   return (
     <button
-      className="play-control"
+      className={playControlClass}
       type="button"
-      aria-label="Play episode"
+      aria-label={label}
     >
-      { type === 'play' &&
-        <PlayIcon
-          className="play-control__icon play-control__icon-play"
-          width="14"
-          height="14"
-          aria-hidden="true"
-        />
-      }
-      { type === 'pause' &&
-        <PauseIcon
-          className="play-control__icon"
-          width="14"
-          height="14"
-          aria-hidden="true"
-        />
-      }
+      <Icon
+        className={playControlIconClass}
+        width="14"
+        height="14"
+        aria-hidden="true"
+      />
     </button>
   );
 };
