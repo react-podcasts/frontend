@@ -11,6 +11,14 @@ export const secondsToString = (secondsString) => {
   return `${minutes} mins`;
 };
 
-export const secondsToHms = (seconds) => {
-  return new Date(seconds * 1000).toISOString().substr(11, 8);
+export const secondsToHms = (secondsString) => {
+  const totalSeconds = parseInt(secondsString, 10);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor(totalSeconds / 60) % 60;
+  const seconds = totalSeconds % 60;
+
+  return [hours, minutes, seconds]
+      .map(v => v < 10 ? '0' + v : v)
+      .filter((v, i) => v !== '00' || i > 0)
+      .join(':');
 }

@@ -68,6 +68,7 @@ const Player = () => {
         onCanPlayThrough={() => dispatch(actions.playerCanPlayThrough())}
         onVolumeChange={playerChangeVolume}
         onTimeUpdate={playerTimeUpdate}
+        loop={false}
       />
       { loading ?
         <p className="player__spinner">Loading...</p>
@@ -109,7 +110,9 @@ const Player = () => {
                 value={currentTime}
                 onChange={handleProgressChange}
               />
-              <span className="player__time player__time--full">-{secondsToHms(duration)}</span>
+              <span className="player__time player__time--full">
+                -{secondsToHms(duration - currentTime)}
+              </span>
             </div>
           </div>
           <div className="player__volume">
