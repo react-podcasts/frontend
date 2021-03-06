@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as actions from '../../actions/player';
 import { secondsToHms } from '../../utils/time';
 import Range from '../range';
@@ -12,7 +13,18 @@ const Player = () => {
   const audio = useRef();
   const dispatch = useDispatch();
   const {
-    show, loading, playing, src, title, coverUrl600, author, duration, currentTime, volume, muted
+    show,
+    loading,
+    playing,
+    src,
+    title,
+    coverUrl600,
+    author,
+    duration,
+    currentTime,
+    volume,
+    muted,
+    podcastId
   } = useSelector(state => state.player);
   const playControlType = playing ? 'pause' : 'play';
 
@@ -99,7 +111,10 @@ const Player = () => {
           <div className="player__controls">
             <div className="player__info">
               <h3 className="player__title">{title}</h3>
-              <p className="player__author">{author}</p>
+              <Link
+                className="player__author"
+                to={`/podcast/${podcastId}`}
+              >{author}</Link>
             </div>
             <div className="player__progress">
               <span className="player__time">{secondsToHms(currentTime)}</span>

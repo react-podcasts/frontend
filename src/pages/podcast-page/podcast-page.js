@@ -28,7 +28,8 @@ const PodcastPage = () => {
         duration: episode.duration,
         title: episode.title,
         coverUrl600,
-        author
+        author: title,
+        podcastId
       };
       dispatch(loadEpisodeData(episodeData));
     }

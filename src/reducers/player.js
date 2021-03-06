@@ -11,6 +11,7 @@ const initialState = {
   currentTime: 0,
   volume: 1,
   episodeId: '',
+  podcastId: '',
   title: '',
   coverUrl600: '',
   author: ''
