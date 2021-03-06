@@ -3,7 +3,15 @@ import PlayControl from '../play-control';
 import { secondsToString } from '../../utils/time';
 import './episodes-list.css';
 
-const EpisodesList = ({ episodes, onPlay }) => {
+const EpisodesList = ({ episodes, playingEpisodeId, playing, onPlay, onPause }) => {
+  const handleClick = (id) => {
+    if (playing) {
+      onPause();
+    } else {
+      onPlay(id);
+    }
+  };
+
   return (
     <ul className="episodes-list">
       {
@@ -11,8 +19,8 @@ const EpisodesList = ({ episodes, onPlay }) => {
           return (
             <li key={id} className="episodes-list__item">
               <PlayControl
-                type="play"
-                onClick={() => onPlay(id)}
+                type={playing && id === playingEpisodeId ? 'pause' : 'play'}
+                onClick={() => handleClick(id)}
               />
               <h2 className="episodes-list__title">{title}</h2>
               <span className="episodes-list__published">{published}</span>

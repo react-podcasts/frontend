@@ -9,6 +9,7 @@ const initialState = {
   duration: 0,
   currentTime: 0,
   volume: 1,
+  episodeId: '',
   title: '',
   coverUrl600: '',
   author: ''
