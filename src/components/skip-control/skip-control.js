@@ -3,7 +3,7 @@ import { ReactComponent as SkipNextIcon } from './skip-next.svg';
 import { ReactComponent as SkipPrevIcon } from './skip-prev.svg';
 import './skip-control.css';
 
-const SkipControl = ({ type }) => {
+const SkipControl = ({ type, onClick }) => {
   const Icon = type === 'prev' ? SkipPrevIcon : SkipNextIcon;
   const label = `Skip ${type === 'prev' ? 'back' : 'forward'}`;
 
@@ -11,6 +11,7 @@ const SkipControl = ({ type }) => {
     <button
       className="skip-control"
       type="button"
+      onClick={onClick}
       aria-label={label}
     >
       <Icon

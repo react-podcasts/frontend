@@ -16,3 +16,8 @@ export const playerPlay = () => ({
 export const playerPause = () => ({
   type: types.PLAYER_PAUSE
 });
+
+export const playerUpdateTime = (currentTime) => ({
+  type: types.PLAYER_UPDATE_TIME,
+  currentTime
+});

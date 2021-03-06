@@ -7,6 +7,7 @@ const initialState = {
   playing: false,
   src: '',
   duration: 0,
+  currentTime: 0,
   title: '',
   coverUrl600: '',
   author: ''
@@ -39,6 +40,11 @@ export const player = (state = initialState, action) => {
       return {
         ...state,
         playing: false
+      };
+    case types.PLAYER_UPDATE_TIME:
+      return {
+        ...state,
+        currentTime: action.currentTime
       };
     default:
       return state;

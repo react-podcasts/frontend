@@ -1,5 +1,6 @@
 import React from 'react';
 import PlayControl from '../play-control';
+import { secondsToString } from '../../utils/time';
 import './episodes-list.css';
 
 const EpisodesList = ({ episodes, onPlay }) => {
@@ -15,7 +16,7 @@ const EpisodesList = ({ episodes, onPlay }) => {
               />
               <h2 className="episodes-list__title">{title}</h2>
               <span className="episodes-list__published">{published}</span>
-              <span className="episodes-list__duration">{duration}</span>
+              <span className="episodes-list__duration">{secondsToString(duration)}</span>
             </li>
           );
         })
