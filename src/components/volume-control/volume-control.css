@@ -1,0 +1,29 @@
+/* Volume Control */
+
+.volume-control {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  column-gap: 8px;
+}
+
+/* Button */
+
+.volume-control__button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Icon */
+
+.volume-control__icon {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

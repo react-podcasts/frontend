@@ -26,3 +26,7 @@ export const playerChangeVolume = (volume) => ({
   type: types.PLAYER_CHANGE_VOLUME,
   volume
 });
+
+export const playerToggleMute = () => ({
+  type: types.PLAYER_TOGGLE_MUTE
+});

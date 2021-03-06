@@ -6,6 +6,7 @@ const initialState = {
   canPlayThrough: false,
   playing: false,
   src: '',
+  muted: false,
   duration: 0,
   currentTime: 0,
   volume: 1,
@@ -52,6 +53,11 @@ export const player = (state = initialState, action) => {
       return {
         ...state,
         volume: action.volume
+      };
+    case types.PLAYER_TOGGLE_MUTE:
+      return {
+        ...state,
+        muted: !state.muted
       };
     default:
       return state;

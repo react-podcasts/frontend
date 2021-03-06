@@ -5,13 +5,14 @@ import { secondsToHms } from '../../utils/time';
 import Range from '../range';
 import PlayControl from '../play-control';
 import SkipControl from '../skip-control';
+import VolumeControl from '../volume-control';
 import './player.css';
 
 const Player = () => {
   const audio = useRef();
   const dispatch = useDispatch();
   const {
-    show, loading, playing, src, title, coverUrl600, author, duration, currentTime, volume
+    show, loading, playing, src, title, coverUrl600, author, duration, currentTime, volume, muted
   } = useSelector(state => state.player);
   const playControlType = playing ? 'pause' : 'play';
 
@@ -41,6 +42,11 @@ const Player = () => {
   const handleChangeVolume = (event) => {
     const volume = event.target.value;
     audio.current.volume = volume;
+  };
+
+  const handleToggleMute = () => {
+    audio.current.muted = !muted;
+    dispatch(actions.playerToggleMute());
   };
 
   if (show && !loading && playing) {
@@ -107,11 +113,10 @@ const Player = () => {
             </div>
           </div>
           <div className="player__volume">
-            <Range
-              min="0"
-              max="1"
-              step="0.1"
+            <VolumeControl
               value={volume}
+              muted={muted}
+              toggleMute={handleToggleMute}
               onChange={handleChangeVolume}
             />
           </div>
