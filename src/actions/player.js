@@ -21,3 +21,8 @@ export const playerUpdateTime = (currentTime) => ({
   type: types.PLAYER_UPDATE_TIME,
   currentTime
 });
+
+export const playerChangeVolume = (volume) => ({
+  type: types.PLAYER_CHANGE_VOLUME,
+  volume
+});

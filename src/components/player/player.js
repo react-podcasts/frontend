@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { playerCanPlayThrough, playerPlay, playerPause, playerUpdateTime } from '../../actions/player';
+import * as actions from '../../actions/player';
 import { secondsToHms } from '../../utils/time';
 import Range from '../range';
 import PlayControl from '../play-control';
@@ -11,26 +11,37 @@ const Player = () => {
   const audio = useRef();
   const dispatch = useDispatch();
   const {
-    show, loading, playing, src, title, coverUrl600, author, duration, currentTime
+    show, loading, playing, src, title, coverUrl600, author, duration, currentTime, volume
   } = useSelector(state => state.player);
   const playControlType = playing ? 'pause' : 'play';
 
   const playerChangePlaying = () => {
     if (playing) {
-      dispatch(playerPause());
+      dispatch(actions.playerPause());
     } else {
-      dispatch(playerPlay());
+      dispatch(actions.playerPlay());
     }
   };
 
   const playerTimeUpdate = () => {
-    dispatch(playerUpdateTime(audio.current.currentTime));
+    const time = audio.current.currentTime;
+    dispatch(actions.playerUpdateTime(time));
+  };
+
+  const playerChangeVolume = () => {
+    const value = audio.current.volume;
+    dispatch(actions.playerChangeVolume(value));
   };
 
   const handleProgressChange = (event) => {
     const time = event.target.value;
     audio.current.currentTime = time;
   }
+
+  const handleChangeVolume = (event) => {
+    const volume = event.target.value;
+    audio.current.volume = volume;
+  };
 
   if (show && !loading && playing) {
     audio.current.play();
@@ -48,7 +59,8 @@ const Player = () => {
         src={src}
         ref={audio}
         currenttime={currentTime}
-        onCanPlayThrough={() => dispatch(playerCanPlayThrough())}
+        onCanPlayThrough={() => dispatch(actions.playerCanPlayThrough())}
+        onVolumeChange={playerChangeVolume}
         onTimeUpdate={playerTimeUpdate}
       />
       { loading ?
@@ -87,6 +99,7 @@ const Player = () => {
               <Range
                 min="0"
                 max={duration}
+                step={1}
                 value={currentTime}
                 onChange={handleProgressChange}
               />
@@ -96,9 +109,10 @@ const Player = () => {
           <div className="player__volume">
             <Range
               min="0"
-              max="10"
-              value="3"
-              onChange={() => {}}
+              max="1"
+              step="0.1"
+              value={volume}
+              onChange={handleChangeVolume}
             />
           </div>
         </div>

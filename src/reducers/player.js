@@ -8,6 +8,7 @@ const initialState = {
   src: '',
   duration: 0,
   currentTime: 0,
+  volume: 1,
   title: '',
   coverUrl600: '',
   author: ''
@@ -45,6 +46,11 @@ export const player = (state = initialState, action) => {
       return {
         ...state,
         currentTime: action.currentTime
+      };
+    case types.PLAYER_CHANGE_VOLUME:
+      return {
+        ...state,
+        volume: action.volume
       };
     default:
       return state;
