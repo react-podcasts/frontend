@@ -39,7 +39,7 @@ const Player = () => {
   };
 
   const playerTimeUpdate = () => {
-    const time = audio.current.currentTime;
+    const time = Math.round(audio.current.currentTime);
     dispatch(actions.playerUpdateTime(time));
   };
 
@@ -148,7 +148,9 @@ const Player = () => {
               >{author}</Link>
             </div>
             <div className="player__progress">
-              <span className="player__time">{secondsToHms(currentTime)}</span>
+              <span className="player__time player__time--left">
+                {secondsToHms(currentTime)}
+              </span>
               <Range
                 min="0"
                 max={duration}
@@ -156,7 +158,7 @@ const Player = () => {
                 value={currentTime}
                 onChange={handleProgressChange}
               />
-              <span className="player__time player__time--full">
+              <span className="player__time">
                 -{secondsToHms(duration - currentTime)}
               </span>
             </div>
