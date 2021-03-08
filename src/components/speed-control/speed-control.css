@@ -1,0 +1,64 @@
+/* Speed Control */
+
+.speed-control {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  row-gap: 8px;
+  min-height: 70px;
+}
+
+/* Button */
+
+.speed-control__button {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+
+.speed-control:hover .speed-control__button,
+.speed-control:focus-within .speed-control__button {
+  display: flex;
+}
+
+/* Icon */
+
+.speed-control__icon {
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Toggle */
+
+.speed-control__toggle {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2px;
+  min-width: 40px;
+  height: 18px;
+  margin: 0;
+  padding: 0 8px;
+  border: none;
+  border-radius: 2px;
+  background-color: #f3f3f3;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--black);
+  cursor: pointer;
+}

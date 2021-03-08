@@ -6,6 +6,7 @@ import { secondsToHms } from '../../utils/time';
 import Range from '../range';
 import PlayControl from '../play-control';
 import SkipControl from '../skip-control';
+import SpeedControl from '../speed-control';
 import VolumeControl from '../volume-control';
 import './player.css';
 
@@ -24,7 +25,8 @@ const Player = () => {
     currentTime,
     volume,
     muted,
-    podcastId
+    podcastId,
+    playbackRate
   } = useSelector(state => state.player);
   const playControlType = playing ? 'pause' : 'play';
 
@@ -61,6 +63,34 @@ const Player = () => {
     dispatch(actions.playerToggleMute());
   };
 
+  const handleRateChange = (value) => {
+    const oldValue = +audio.current.playbackRate;
+    const delta = +value;
+    const result = (oldValue + delta).toFixed(1);
+    audio.current.playbackRate = result;
+  };
+
+  const handleToggleRateChange = () => {
+    let result;
+
+    if (playbackRate < 1) {
+      result = 1;
+    } else if (playbackRate >= 1 && playbackRate < 1.5) {
+      result = 1.5;
+    } else if (playbackRate >= 1.5 && playbackRate < 2) {
+      result = 2;
+    } else if (playbackRate >= 2) {
+      result = 1;
+    }
+
+    audio.current.playbackRate = result;
+  };
+
+  const playerRateChange = () => {
+    const value = audio.current.playbackRate;
+    dispatch(actions.playerChangePlaybackRate(value));
+  };
+
   if (show && !loading && playing) {
     audio.current.play();
   } else if (show && !loading && !playing) {
@@ -80,6 +110,7 @@ const Player = () => {
         onCanPlayThrough={() => dispatch(actions.playerCanPlayThrough())}
         onVolumeChange={playerChangeVolume}
         onTimeUpdate={playerTimeUpdate}
+        onRateChange={playerRateChange}
         loop={false}
       />
       { loading ?
@@ -130,6 +161,12 @@ const Player = () => {
               </span>
             </div>
           </div>
+          <SpeedControl
+            value={playbackRate}
+            inc={() => handleRateChange(0.1)}
+            dec={() => handleRateChange(-0.1)}
+            toggle={handleToggleRateChange}
+          />
           <div className="player__volume">
             <VolumeControl
               value={volume}

@@ -9,6 +9,7 @@ const initialState = {
   muted: false,
   duration: 0,
   currentTime: 0,
+  playbackRate: 1,
   volume: 1,
   episodeId: '',
   podcastId: '',
@@ -59,6 +60,11 @@ export const player = (state = initialState, action) => {
       return {
         ...state,
         muted: !state.muted
+      };
+    case types.PLAYER_CHANGE_PLAYBACK_RATE:
+      return {
+        ...state,
+        playbackRate: action.value
       };
     default:
       return state;
