@@ -1,0 +1,30 @@
+/* Button */
+
+.subscribe-button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 0;
+  background-color: #e8e8e8;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #8c8c8c;
+  cursor: pointer;
+}
+
+.subscribe-button:hover {
+  background-color: #fc4338;
+  color: var(--white);
+}
+
+.subscribe-button--theme--success,
+.subscribe-button--theme--success:hover {
+  background-color: #21d184;
+  color: var(--white);
+}

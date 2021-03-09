@@ -6,6 +6,15 @@
   column-gap: 32px;
 }
 
+/* Cover */
+
+.podcast-info__cover {
+  display: block;
+  width: 210px;
+  height: 210px;
+  margin-bottom: 16px;
+}
+
 /* Title */
 
 .podcast-info__title {
