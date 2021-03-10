@@ -4,17 +4,17 @@ import { useParams } from 'react-router-dom';
 import { getPodcastPageData } from '../../actions/podcast-page';
 import { loadEpisodeData, playerPause, playerPlay } from '../../actions/player';
 import { subscriptionsChange } from '../../actions/subscriptions';
+import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import PodcastInfo from '../../components/podcast-info';
 import EpisodesList from '../../components/episodes-list';
 
 const PodcastPage = () => {
+  const { podcastId } = useParams();
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector(state => state.podcastPage);
-  const subscriptions = useSelector(state => state.subscriptions);
   const { playing, episodeId } = useSelector(state => state.player);
+  const subscribed = useSelector(hasInSubscriptionsSelector);
   const { coverUrl600, title, author, summary, episodes } = data;
-  const { podcastId } = useParams();
-  const subscribed = subscriptions.findIndex(s => s.id === podcastId) !== -1;
 
   useEffect(() => {
     dispatch(getPodcastPageData(podcastId));
@@ -43,7 +43,7 @@ const PodcastPage = () => {
   }
 
   const onSubscribe = () => {
-    dispatch(subscriptionsChange(podcastId));
+    dispatch(subscriptionsChange(podcastId, subscribed));
   };
 
   if (error) {

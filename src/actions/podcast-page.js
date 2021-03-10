@@ -17,12 +17,12 @@ const podcastPageSuccess = (data) => ({
 });
 
 export const getPodcastPageData = (podcastId) => (dispatch) => {
-  let podcastData = {};
+  let podcastData = { id: podcastId };
 
   dispatch(podcastPageRequested());
   fetchDataById(podcastId)
     .then(({ feed, ...rest }) => {
-      podcastData = { ...rest };
+      podcastData = { ...podcastData, ...rest };
       return fetchPodcastPageData(feed);
     })
     .then(data => {

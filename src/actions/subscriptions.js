@@ -10,10 +10,9 @@ const subscriptionsRemovePodcast = (podcastId) => ({
   podcastId
 });
 
-export const subscriptionsChange = (podcastId) => (dispatch, getState) => {
-  const { subscriptions, podcastPage } = getState();
+export const subscriptionsChange = (podcastId, subscribed) => (dispatch, getState) => {
+  const { podcastPage } = getState();
   const { title, coverUrl600 } = podcastPage.data;
-  const subscribed = subscriptions.findIndex(s => s.id === podcastId) !== -1;
 
   if (subscribed) {
     dispatch(subscriptionsRemovePodcast(podcastId));
