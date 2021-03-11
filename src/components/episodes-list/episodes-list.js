@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PlayControl from '../play-control';
 import { secondsToString } from '../../utils/time';
 import './episodes-list.css';
@@ -22,7 +23,12 @@ const EpisodesList = ({ episodes, playingEpisodeId, playing, onPlay, onPause }) 
                 type={playing && id === playingEpisodeId ? 'pause' : 'play'}
                 onClick={() => handleClick(id)}
               />
-              <h2 className="episodes-list__title">{title}</h2>
+              <h2 className="episodes-list__title">
+                <Link
+                  className="episodes-list__link"
+                  to={location => `${location.pathname}/${id}`}
+                >{title}</Link>
+              </h2>
               <span className="episodes-list__published">{published}</span>
               <span className="episodes-list__duration">{secondsToString(duration)}</span>
             </li>

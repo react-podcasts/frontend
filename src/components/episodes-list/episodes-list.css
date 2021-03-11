@@ -2,7 +2,8 @@
 
 .episodes-list {
   margin: 0;
-  padding: 32px 0 152px;
+  padding: 0;
+  padding-top: 32px;
   list-style: none;
 }
 
@@ -30,6 +31,17 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
+}
+
+/* Link */
+
+.episodes-list__link {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.episodes-list__link:hover {
+  color: #3a40dd;
 }
 
 /* Duration */

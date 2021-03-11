@@ -14,11 +14,13 @@ const PodcastPage = () => {
   const { loading, error, data } = useSelector(state => state.podcastPage);
   const { playing, episodeId } = useSelector(state => state.player);
   const subscribed = useSelector(hasInSubscriptionsSelector);
-  const { coverUrl600, title, author, summary, episodes } = data;
+  const { id, coverUrl600, title, author, summary, episodes } = data;
 
   useEffect(() => {
-    dispatch(getPodcastPageData(podcastId));
-  }, [dispatch, podcastId]);
+    if (podcastId !== id) {
+      dispatch(getPodcastPageData(podcastId));
+    }
+  }, [dispatch, podcastId, id]);
 
   const onPlayEpisode = (id) => {
     if (id === episodeId) {

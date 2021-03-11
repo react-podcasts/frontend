@@ -1,0 +1,16 @@
+/* Episode Notes */
+
+.episode-notes {
+  display: grid;
+  row-gap: 16px;
+  margin: 0;
+  padding-top: 32px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 24px;
+  white-space:pre-wrap;
+}
+
+.episode-notes * {
+  margin: 0;
+}
