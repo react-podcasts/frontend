@@ -26,16 +26,13 @@ const Player = () => {
     volume,
     muted,
     podcastId,
+    episodeId,
     playbackRate
   } = useSelector(state => state.player);
   const playControlType = playing ? 'pause' : 'play';
 
   const playerChangePlaying = () => {
-    if (playing) {
-      dispatch(actions.playerPause());
-    } else {
-      dispatch(actions.playerPlay());
-    }
+    dispatch(actions.playerPlayControl(episodeId));
   };
 
   const playerTimeUpdate = () => {

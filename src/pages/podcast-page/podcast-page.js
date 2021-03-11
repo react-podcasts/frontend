@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getPodcastPageData } from '../../actions/podcast-page';
-import { loadEpisodeData, playerPause, playerPlay } from '../../actions/player';
+import { playerPlayControl } from '../../actions/player';
 import { subscriptionsChange } from '../../actions/subscriptions';
 import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import PodcastInfo from '../../components/podcast-info';
@@ -21,28 +21,6 @@ const PodcastPage = () => {
       dispatch(getPodcastPageData(podcastId));
     }
   }, [dispatch, podcastId, id]);
-
-  const onPlayEpisode = (id) => {
-    if (id === episodeId) {
-      dispatch(playerPlay());
-    } else {
-      const episode = episodes.find(e => e.id === id);
-      const episodeData = {
-        episodeId: episode.id,
-        src: episode.url,
-        duration: episode.duration,
-        title: episode.title,
-        coverUrl600,
-        author: title,
-        podcastId
-      };
-      dispatch(loadEpisodeData(episodeData));
-    }
-  };
-
-  const onPauseEpisode = () => {
-    dispatch(playerPause());
-  }
 
   const onSubscribe = () => {
     dispatch(subscriptionsChange(podcastId, subscribed));
@@ -74,8 +52,7 @@ const PodcastPage = () => {
         episodes={episodes}
         playing={playing}
         playingEpisodeId={episodeId}
-        onPlay={onPlayEpisode}
-        onPause={onPauseEpisode}
+        onPlayControl={(id) => dispatch(playerPlayControl(id))}
       />
     </>
   );
