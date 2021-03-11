@@ -9,7 +9,7 @@ const Navigation = () => {
         {
           [
             { label: 'Home', path: '/' },
-            { label: 'Discovery', path: '/discovery' },
+            { label: 'Discover', path: '/discover' },
             { label: 'New Releases', path: '/new-releases' },
             { label: 'In Progress', path: '/in-progress' },
             { label: 'Starred', path: '/starred' }

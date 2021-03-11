@@ -1,0 +1,42 @@
+/* Discover List */
+
+.discover-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Link */
+
+.discover-list__link {
+  text-decoration: none;
+}
+
+/* Image */
+
+.discover-list__image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Title */
+
+.discover-list__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--black);
+}
+
+/* Author */
+
+.discover-list__author {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #8c8c8c;
+}
