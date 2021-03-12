@@ -1,0 +1,9 @@
+/* Episodes Items */
+
+.episodes-items {
+  display: grid;
+  row-gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

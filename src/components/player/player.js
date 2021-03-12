@@ -31,6 +31,11 @@ const Player = () => {
   } = useSelector(state => state.player);
   const playControlType = playing ? 'pause' : 'play';
 
+  const playerCanPlayThrough = () => {
+    dispatch(actions.playerCanPlayThrough());
+    audio.current.currentTime = currentTime;
+  };
+
   const playerChangePlaying = () => {
     dispatch(actions.playerPlayControl(episodeId));
   };
@@ -104,7 +109,7 @@ const Player = () => {
         src={src}
         ref={audio}
         currenttime={currentTime}
-        onCanPlayThrough={() => dispatch(actions.playerCanPlayThrough())}
+        onCanPlayThrough={playerCanPlayThrough}
         onVolumeChange={playerChangeVolume}
         onTimeUpdate={playerTimeUpdate}
         onRateChange={playerRateChange}

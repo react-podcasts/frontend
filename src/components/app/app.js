@@ -6,6 +6,7 @@ import HomePage from '../../pages/home-page';
 import PodcastPage from '../../pages/podcast-page';
 import EpisodePage from '../../pages/episode-page';
 import DiscoverPage from '../../pages/discover-page';
+import ListeningHistoryPage from '../../pages/listening-history-page';
 import './app.css';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/new-releases" render={() => <p>New Releases Page</p>} />
           <Route path="/in-progress" render={() => <p>In Progress Page</p>} />
           <Route path="/starred" render={() => <p>Starred Page</p>} />
+          <Route path="/listening-history" component={ListeningHistoryPage} />
         </Switch>
       </main>
       <Player />

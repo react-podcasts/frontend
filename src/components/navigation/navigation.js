@@ -12,7 +12,8 @@ const Navigation = () => {
             { label: 'Discover', path: '/discover' },
             { label: 'New Releases', path: '/new-releases' },
             { label: 'In Progress', path: '/in-progress' },
-            { label: 'Starred', path: '/starred' }
+            { label: 'Starred', path: '/starred' },
+            { label: 'Listening History', path: '/listening-history' }
           ].map(({ label, path }) => {
             return (
               <li key={path}>
