@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlayControl from '../play-control';
+import PlayControlContainer from '../play-control-container';
 import './episode-info.css';
 
 const EpisodeInfo = ({
@@ -9,10 +9,7 @@ const EpisodeInfo = ({
   podcastTitle,
   episodeTitle,
   coverUrl600,
-  published,
-  playing,
-  playingEpisodeId,
-  onPlayControl
+  published
 }) => {
   return (
     <div className="episode-info">
@@ -25,10 +22,7 @@ const EpisodeInfo = ({
           alt={podcastTitle}
         />
         <div className="episode-info__button">
-          <PlayControl
-            type={playing && episodeId === playingEpisodeId ? 'pause' : 'play'}
-            onClick={() => onPlayControl(episodeId)}
-          />
+          <PlayControlContainer selectedEpisodeId={episodeId} />
         </div>
       </div>
       <div>

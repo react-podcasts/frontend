@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getPodcastPageData } from '../../actions/podcast-page';
-import { playerPlayControl } from '../../actions/player';
 import { subscriptionsChange } from '../../actions/subscriptions';
 import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import PodcastInfo from '../../components/podcast-info';
@@ -12,7 +11,6 @@ const PodcastPage = () => {
   const { podcastId } = useParams();
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector(state => state.podcastPage);
-  const { playing, episodeId } = useSelector(state => state.player);
   const subscribed = useSelector(hasInSubscriptionsSelector);
   const { id, coverUrl600, title, author, summary, episodes } = data;
 
@@ -48,12 +46,7 @@ const PodcastPage = () => {
         subscribed={subscribed}
         onSubscribe={onSubscribe}
       />
-      <EpisodesList
-        episodes={episodes}
-        playing={playing}
-        playingEpisodeId={episodeId}
-        onPlayControl={(id) => dispatch(playerPlayControl(id))}
-      />
+      <EpisodesList episodes={episodes} />
     </>
   );
 };

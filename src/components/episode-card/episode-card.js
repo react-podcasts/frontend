@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { secondsToString } from '../../utils/time';
-import PlayControl from '../play-control';
+import PlayControlContainer from '../play-control-container';
 import './episode-card.css';
 
 const EpisodeCard = ({
@@ -12,10 +12,7 @@ const EpisodeCard = ({
   coverUrl600,
   duration,
   published,
-  currentTime,
-  playing,
-  playingEpisodeId,
-  onPlayControl
+  currentTime
 }) => {
   return (
     <div className="episode-card">
@@ -45,10 +42,7 @@ const EpisodeCard = ({
         {secondsToString(duration)}
       </span>
       <p>{currentTime}</p>
-      <PlayControl
-        type={playing && episodeId === playingEpisodeId ? 'pause' : 'play'}
-        onClick={() => onPlayControl(episodeId)}
-      />
+      <PlayControlContainer selectedEpisodeId={episodeId} />
     </div>
   );
 };

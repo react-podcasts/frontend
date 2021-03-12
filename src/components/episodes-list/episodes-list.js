@@ -1,20 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlayControl from '../play-control';
 import { secondsToString } from '../../utils/time';
+import PlayControlContainer from '../play-control-container';
 import './episodes-list.css';
 
-const EpisodesList = ({ episodes, playingEpisodeId, playing, onPlayControl }) => {
+const EpisodesList = ({ episodes }) => {
   return (
     <ul className="episodes-list">
       {
         episodes.map(({ id, title, published, duration }) => {
           return (
             <li key={id} className="episodes-list__item">
-              <PlayControl
-                type={playing && id === playingEpisodeId ? 'pause' : 'play'}
-                onClick={() => onPlayControl(id)}
-              />
+              <PlayControlContainer selectedEpisodeId={id} />
               <h2 className="episodes-list__title">
                 <Link
                   className="episodes-list__link"

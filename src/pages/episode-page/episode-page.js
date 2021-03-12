@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPodcastPageData } from '../../actions/podcast-page';
-import { playerPlayControl } from '../../actions/player';
 import EpisodeInfo from '../../components/episode-info';
 import EpisodeNotes from '../../components/episode-notes';
 
@@ -12,7 +11,6 @@ const EpisodePage = () => {
   const { loading, error, data: {
     id, title: podcastTitle, coverUrl600, episodes
   } } = useSelector(state => state.podcastPage);
-  const { playing, episodeId: playingEpisodeId } = useSelector(state => state.player);
 
   useEffect(() => {
     if (podcastId !== id) {
@@ -44,9 +42,6 @@ const EpisodePage = () => {
         podcastTitle={podcastTitle}
         coverUrl600={coverUrl600}
         published={published}
-        playing={playing}
-        playingEpisodeId={playingEpisodeId}
-        onPlayControl={(id) => dispatch(playerPlayControl(id))}
       />
       <EpisodeNotes description={description} />
     </div>

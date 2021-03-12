@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import * as actions from '../../actions/player';
 import { secondsToHms } from '../../utils/time';
 import Range from '../range';
-import PlayControl from '../play-control';
 import SkipControl from '../skip-control';
 import SpeedControl from '../speed-control';
 import VolumeControl from '../volume-control';
+import PlayControlContainer from '../play-control-container';
 import './player.css';
 
 const Player = () => {
@@ -29,15 +29,10 @@ const Player = () => {
     episodeId,
     playbackRate
   } = useSelector(state => state.player);
-  const playControlType = playing ? 'pause' : 'play';
 
   const playerCanPlayThrough = () => {
     dispatch(actions.playerCanPlayThrough());
     audio.current.currentTime = currentTime;
-  };
-
-  const playerChangePlaying = () => {
-    dispatch(actions.playerPlayControl(episodeId));
   };
 
   const playerTimeUpdate = () => {
@@ -131,10 +126,9 @@ const Player = () => {
               type="prev"
               onClick={() => audio.current.currentTime -= 15 }
             />
-            <PlayControl
-              type={playControlType}
+            <PlayControlContainer
               theme="fill"
-              onClick={playerChangePlaying}
+              selectedEpisodeId={episodeId}
             />
             <SkipControl
               type="next"

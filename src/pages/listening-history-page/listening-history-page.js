@@ -1,12 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { playerPlayControl } from '../../actions/player';
+import { useSelector } from 'react-redux';
 import EpisodesItems from '../../components/episodes-items';
 
 const ListeningHistoryPage = () => {
-  const dispatch = useDispatch();
   const history = useSelector(state => state.listeningHistory);
-  const { playing, episodeId } = useSelector(state => state.player);
 
   if (history.length === 0) {
     return (
@@ -17,12 +14,7 @@ const ListeningHistoryPage = () => {
   return (
     <section>
       <h2>Listening History</h2>
-      <EpisodesItems
-        history={history}
-        playing={playing}
-        playingEpisodeId={episodeId}
-        onPlayControl={(id) => dispatch(playerPlayControl(id))}
-      />
+      <EpisodesItems history={history} />
     </section>
   );
 };
