@@ -1,6 +1,7 @@
 /* Play Control */
 
 .play-control {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +10,9 @@
   margin: 0;
   padding: 0;
   border: 2px solid #3a40dd;
+  /* border: none; */
   border-radius: 50%;
+  /* border-radius: 0; */
   background-color: transparent;
   cursor: pointer;
 }
@@ -39,6 +42,18 @@
   margin-left: 2px;
 }
 
+/* Progress */
+
+.play-control__progress {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
+
+.play-control:hover .play-control__progress {
+  display: none;
+}
+
 /* Theme Fill */
 
 .play-control--theme-fill,
@@ -51,4 +66,8 @@
 .play-control--theme-fill:hover .play-control__icon {
   fill: var(--black);
   stroke: var(--black);
+}
+
+.play-control--theme-fill .play-control__progress {
+  display: none;
 }

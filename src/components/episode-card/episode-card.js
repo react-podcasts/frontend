@@ -12,7 +12,6 @@ const EpisodeCard = ({
   coverUrl600,
   duration,
   published,
-  currentTime,
   src
 }) => {
   return (
@@ -42,7 +41,6 @@ const EpisodeCard = ({
       <span className="episode-card__duration">
         {secondsToString(duration)}
       </span>
-      <p>{currentTime}</p>
       <PlayControlContainer
         selectedEpisodeData={{
           episodeId,

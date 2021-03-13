@@ -2,7 +2,7 @@
 
 .episode-card {
   display: grid;
-  grid-template-columns: min-content 1fr 120px 60px 60px min-content;
+  grid-template-columns: min-content 1fr 120px 60px min-content;
   grid-auto-flow: column;
   align-items: center;
   column-gap: 24px;

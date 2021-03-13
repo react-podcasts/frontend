@@ -1,0 +1,8 @@
+/* Progress */
+
+.progress-ring__progress {
+  stroke: #c4c6f5;
+  fill: transparent;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
