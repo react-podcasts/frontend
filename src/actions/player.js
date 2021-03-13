@@ -18,9 +18,7 @@ export const playerCanPlayThrough = () => ({
   type: types.PLAYER_CAN_PLAY_THROUGH
 });
 
-export const playerUpdateTime = (currentTime) => (dispatch, getState) => {
-  const { player: { episodeId } } = getState();
-
+export const playerUpdateTime = (episodeId, currentTime) => (dispatch) => {
   dispatch({
     type: types.PLAYER_UPDATE_TIME,
     currentTime
@@ -42,39 +40,28 @@ export const playerChangePlaybackRate = (value) => ({
   value
 });
 
-export const playerPlayControl = (id) => (dispatch, getState) => {
-  const { player, podcastPage, listeningHistory } = getState();
-  const { playing, episodeId } = player;
-  const { episodes, coverUrl600, title, id: podcastId } = podcastPage.data;
+export const playerPlayControl = (selectedEpisodeData) => (dispatch, getState) => {
+  const { episodeId: selectedEpisodeId } = selectedEpisodeData;
+  const { player, listeningHistory } = getState();
+  const { playing, episodeId: playingEpisodeId } = player;
+  const episodeDataFromHistory = listeningHistory.find(e => e.episodeId === selectedEpisodeId);
+  const currentTime = episodeDataFromHistory ? episodeDataFromHistory.currentTime : 0;
 
-
-  if (playing && episodeId === id) {
+  if (playing && playingEpisodeId === selectedEpisodeId) {
     dispatch(playerPause());
-  } else if (!playing && id === episodeId) {
+  } else if (!playing && selectedEpisodeId === playingEpisodeId) {
     dispatch(playerPlay());
   } else {
-    const episode = episodes.find(e => e.id === id);
-    const episodeDataFromHistory = listeningHistory.find(e => e.episodeId === id);
-    const currentTime = episodeDataFromHistory ? episodeDataFromHistory.currentTime : 0;
-
-    const episodeData = {
-      episodeId: episode.id,
-      src: episode.url,
-      duration: episode.duration,
-      title: episode.title,
-      coverUrl600,
-      author: title,
-      podcastId,
+    dispatch(loadEpisodeData({
+      ...selectedEpisodeData,
       currentTime
-    };
+    }));
 
-    const episodeDataForHistory = {
-      ...episodeData,
-      published: episode.published,
-      currentTime: 0
+    if (!episodeDataFromHistory) {
+      dispatch(addEpisodeToHistory({
+        ...selectedEpisodeData,
+        currentTime
+      }));
     }
-
-    dispatch(loadEpisodeData(episodeData));
-    dispatch(addEpisodeToHistory(episodeDataForHistory));
   }
 };

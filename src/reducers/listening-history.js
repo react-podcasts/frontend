@@ -13,16 +13,10 @@ export const listeningHistory = (state = initialState, action) => {
       const { episodeId, currentTime } = action;
       const episodeIndex = state.findIndex(e => e.episodeId === episodeId);
 
-      const updatedEpisode = {
-        ...state[episodeIndex],
-        currentTime
-      };
+      const newState = [...state];
+      newState[episodeIndex].currentTime = currentTime;
 
-      return [
-        ...state.splice(0, episodeIndex),
-        updatedEpisode,
-        ...state.splice(episodeIndex + 1)
-      ];
+      return newState;
     }
     default:
       return state;

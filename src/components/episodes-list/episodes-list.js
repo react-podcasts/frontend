@@ -4,14 +4,25 @@ import { secondsToString } from '../../utils/time';
 import PlayControlContainer from '../play-control-container';
 import './episodes-list.css';
 
-const EpisodesList = ({ episodes }) => {
+const EpisodesList = ({ podcastId, author, coverUrl600, episodes }) => {
   return (
     <ul className="episodes-list">
       {
-        episodes.map(({ id, title, published, duration }) => {
+        episodes.map(({ id, title, published, duration, url }) => {
           return (
             <li key={id} className="episodes-list__item">
-              <PlayControlContainer selectedEpisodeId={id} />
+              <PlayControlContainer
+                selectedEpisodeData={{
+                  episodeId: id,
+                  title,
+                  duration,
+                  published,
+                  src: url,
+                  podcastId,
+                  author,
+                  coverUrl600
+                }}
+              />
               <h2 className="episodes-list__title">
                 <Link
                   className="episodes-list__link"

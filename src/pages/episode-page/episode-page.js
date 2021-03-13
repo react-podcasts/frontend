@@ -9,7 +9,7 @@ const EpisodePage = () => {
   const { podcastId, episodeId } = useParams();
   const dispatch = useDispatch();
   const { loading, error, data: {
-    id, title: podcastTitle, coverUrl600, episodes
+    id, title: podcastTitle, coverUrl600, author, episodes
   } } = useSelector(state => state.podcastPage);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const EpisodePage = () => {
   }
 
   const episode = episodes.find(i => i.id === episodeId);
-  const { title, published, description } = episode;
+  const { title, published, description, url, duration } = episode;
 
   return (
     <div>
@@ -42,6 +42,9 @@ const EpisodePage = () => {
         podcastTitle={podcastTitle}
         coverUrl600={coverUrl600}
         published={published}
+        duration={duration}
+        url={url}
+        author={author}
       />
       <EpisodeNotes description={description} />
     </div>

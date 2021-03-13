@@ -9,7 +9,10 @@ const EpisodeInfo = ({
   podcastTitle,
   episodeTitle,
   coverUrl600,
-  published
+  published,
+  url,
+  duration,
+  author
 }) => {
   return (
     <div className="episode-info">
@@ -22,7 +25,18 @@ const EpisodeInfo = ({
           alt={podcastTitle}
         />
         <div className="episode-info__button">
-          <PlayControlContainer selectedEpisodeId={episodeId} />
+          <PlayControlContainer
+            selectedEpisodeData={{
+              episodeId,
+              title: episodeTitle,
+              duration,
+              published,
+              src: url,
+              podcastId,
+              author,
+              coverUrl600
+            }}
+          />
         </div>
       </div>
       <div>

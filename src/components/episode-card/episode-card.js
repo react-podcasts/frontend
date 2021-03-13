@@ -12,7 +12,8 @@ const EpisodeCard = ({
   coverUrl600,
   duration,
   published,
-  currentTime
+  currentTime,
+  src
 }) => {
   return (
     <div className="episode-card">
@@ -42,7 +43,18 @@ const EpisodeCard = ({
         {secondsToString(duration)}
       </span>
       <p>{currentTime}</p>
-      <PlayControlContainer selectedEpisodeId={episodeId} />
+      <PlayControlContainer
+        selectedEpisodeData={{
+          episodeId,
+          title,
+          duration,
+          published,
+          src,
+          podcastId,
+          author,
+          coverUrl600
+        }}
+      />
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Player = () => {
 
   const playerTimeUpdate = () => {
     const time = Math.round(audio.current.currentTime);
-    dispatch(actions.playerUpdateTime(time));
+    dispatch(actions.playerUpdateTime(episodeId, time));
   };
 
   const playerChangeVolume = () => {
@@ -128,7 +128,9 @@ const Player = () => {
             />
             <PlayControlContainer
               theme="fill"
-              selectedEpisodeId={episodeId}
+              selectedEpisodeData={{
+                episodeId
+              }}
             />
             <SkipControl
               type="next"

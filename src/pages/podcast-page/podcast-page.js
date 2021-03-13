@@ -46,7 +46,12 @@ const PodcastPage = () => {
         subscribed={subscribed}
         onSubscribe={onSubscribe}
       />
-      <EpisodesList episodes={episodes} />
+      <EpisodesList
+        podcastId={podcastId}
+        author={author}
+        coverUrl600={coverUrl600}
+        episodes={episodes}
+      />
     </>
   );
 };
