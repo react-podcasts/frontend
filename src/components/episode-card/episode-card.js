@@ -8,7 +8,7 @@ const EpisodeCard = ({
   podcastId,
   episodeId,
   title,
-  author,
+  podcastTitle,
   coverUrl600,
   duration,
   published,
@@ -34,7 +34,7 @@ const EpisodeCard = ({
           <Link
             className="episode-card__link"
             to={`/podcast/${podcastId}`}
-          >{author}</Link>
+          >{podcastTitle}</Link>
         </p>
       </div>
       <p>{published}</p>
@@ -49,7 +49,7 @@ const EpisodeCard = ({
           published,
           url,
           podcastId,
-          author,
+          podcastTitle,
           coverUrl600
         }}
       />

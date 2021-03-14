@@ -11,8 +11,7 @@ const EpisodeInfo = ({
   coverUrl600,
   published,
   url,
-  duration,
-  author
+  duration
 }) => {
   return (
     <div className="episode-info">
@@ -33,7 +32,7 @@ const EpisodeInfo = ({
               published,
               url,
               podcastId,
-              author,
+              podcastTitle,
               coverUrl600
             }}
           />

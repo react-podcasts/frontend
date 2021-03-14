@@ -4,7 +4,7 @@ import { secondsToString } from '../../utils/time';
 import PlayControlContainer from '../play-control-container';
 import './episodes-list.css';
 
-const EpisodesList = ({ podcastId, author, coverUrl600, episodes }) => {
+const EpisodesList = ({ podcastId, podcastTitle, coverUrl600, episodes }) => {
   return (
     <ul className="episodes-list">
       {
@@ -27,7 +27,7 @@ const EpisodesList = ({ podcastId, author, coverUrl600, episodes }) => {
                   published,
                   url,
                   podcastId,
-                  author,
+                  podcastTitle,
                   coverUrl600
                 }}
               />

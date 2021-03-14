@@ -20,12 +20,12 @@ const Player = () => {
     url,
     title,
     coverUrl600,
-    author,
     duration,
     currentTime,
     volume,
     muted,
     podcastId,
+    podcastTitle,
     episodeId,
     playbackRate
   } = useSelector(state => state.player);
@@ -124,7 +124,7 @@ const Player = () => {
             src={coverUrl600}
             width="72"
             height="72"
-            alt={`Podcast ${author} cover`}
+            alt={`Podcast ${podcastTitle} cover`}
           />
           <div className="player__play-controls">
             <SkipControl
@@ -155,7 +155,9 @@ const Player = () => {
               <Link
                 className="player__author"
                 to={`/podcast/${podcastId}`}
-              >{author}</Link>
+              >
+                {podcastTitle}
+              </Link>
             </div>
             <div className="player__progress">
               <span className="player__time player__time--left">

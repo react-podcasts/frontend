@@ -12,7 +12,7 @@ const PodcastPage = () => {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector(state => state.podcastPage);
   const subscribed = useSelector(hasInSubscriptionsSelector);
-  const { id, coverUrl600, title, author, summary, episodes, link } = data;
+  const { id, coverUrl600, title, summary, episodes, link } = data;
 
   useEffect(() => {
     if (podcastId !== id) {
@@ -41,7 +41,6 @@ const PodcastPage = () => {
       <PodcastInfo
         coverUrl600={coverUrl600}
         title={title}
-        author={author}
         summary={summary}
         link={link}
         subscribed={subscribed}
@@ -49,7 +48,7 @@ const PodcastPage = () => {
       />
       <EpisodesList
         podcastId={podcastId}
-        author={author}
+        podcastTitle={title}
         coverUrl600={coverUrl600}
         episodes={episodes}
       />
