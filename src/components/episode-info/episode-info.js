@@ -31,7 +31,7 @@ const EpisodeInfo = ({
               title: episodeTitle,
               duration,
               published,
-              src: url,
+              url,
               podcastId,
               author,
               coverUrl600

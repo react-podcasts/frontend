@@ -17,7 +17,7 @@ const Player = () => {
     show,
     loading,
     playing,
-    src,
+    url,
     title,
     coverUrl600,
     author,
@@ -105,7 +105,7 @@ const Player = () => {
   return (
     <div className="player">
       <audio
-        src={src}
+        src={url}
         ref={audio}
         currenttime={currentTime}
         onPlay={playerPlay}

@@ -12,7 +12,7 @@ const EpisodeCard = ({
   coverUrl600,
   duration,
   published,
-  src
+  url
 }) => {
   return (
     <div className="episode-card">
@@ -47,7 +47,7 @@ const EpisodeCard = ({
           title,
           duration,
           published,
-          src,
+          url,
           podcastId,
           author,
           coverUrl600

@@ -25,7 +25,7 @@ const EpisodesList = ({ podcastId, author, coverUrl600, episodes }) => {
                   title,
                   duration,
                   published,
-                  src: url,
+                  url,
                   podcastId,
                   author,
                   coverUrl600
