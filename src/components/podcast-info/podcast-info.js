@@ -7,7 +7,7 @@ const PodcastInfo = ({ coverUrl600, title, author, summary, subscribed, onSubscr
     <div className="podcast-info">
       <div>
         <img
-          className="podcast-info__cover"
+          className="podcast-info__image"
           src={coverUrl600}
           width="210"
           height="210"

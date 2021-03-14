@@ -120,7 +120,7 @@ const Player = () => {
         :
         <div className="player__inner">
           <img
-            className="player__cover"
+            className="player__image"
             src={coverUrl600}
             width="72"
             height="72"

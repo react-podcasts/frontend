@@ -7,7 +7,7 @@ const SubscriptionsList = ({ subscriptions }) => {
     <ul className="subscriptions-list">
       { subscriptions.map(({ id, coverUrl600, title }) => {
         return (
-          <li key={id} className="subscriptions-list__item">
+          <li key={id}>
             <Link
               className="subscriptions-list__link"
               to={`/podcast/${id}`}

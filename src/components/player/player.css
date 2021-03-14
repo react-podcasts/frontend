@@ -31,10 +31,12 @@
   column-gap: 24px;
 }
 
-/* Cover */
+/* Image */
 
-.player__cover {
-  border-radius: 4px;
+.player__image {
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Info */

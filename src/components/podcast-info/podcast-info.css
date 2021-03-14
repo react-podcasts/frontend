@@ -6,13 +6,15 @@
   column-gap: 32px;
 }
 
-/* Cover */
+/* Image */
 
-.podcast-info__cover {
+.podcast-info__image {
   display: block;
-  width: 210px;
-  height: 210px;
+  max-width: 100%;
+  height: auto;
   margin-bottom: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Title */
