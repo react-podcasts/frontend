@@ -13,7 +13,7 @@ const EpisodePage = () => {
   } } = useSelector(state => state.podcastPage);
 
   useEffect(() => {
-    if (podcastId !== id) {
+    if (!id || podcastId !== id) {
       dispatch(getPodcastPageData(podcastId));
     }
   }, [dispatch, podcastId, id]);

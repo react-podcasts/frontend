@@ -58,6 +58,13 @@
   text-overflow: ellipsis;
 }
 
+/* Title Link */
+
+.player__title-link {
+  color: var(--white);
+  text-decoration: none;
+}
+
 /* Author */
 
 .player__author {

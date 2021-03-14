@@ -144,7 +144,14 @@ const Player = () => {
           </div>
           <div className="player__controls">
             <div className="player__info">
-              <h3 className="player__title">{title}</h3>
+              <h3 className="player__title">
+                <Link
+                  className="player__title-link"
+                  to={`/podcast/${podcastId}/${episodeId}`}
+                >
+                  {title}
+                </Link>
+              </h3>
               <Link
                 className="player__author"
                 to={`/podcast/${podcastId}`}
