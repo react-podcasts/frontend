@@ -11,6 +11,14 @@ const EpisodesList = ({ podcastId, author, coverUrl600, episodes }) => {
         episodes.map(({ id, title, published, duration, url }) => {
           return (
             <li key={id} className="episodes-list__item">
+              <h2 className="episodes-list__title">
+                <Link
+                  className="episodes-list__link"
+                  to={location => `${location.pathname}/${id}`}
+                >{title}</Link>
+              </h2>
+              <span className="episodes-list__published">{published}</span>
+              <span className="episodes-list__duration">{secondsToString(duration)}</span>
               <PlayControlContainer
                 selectedEpisodeData={{
                   episodeId: id,
@@ -23,14 +31,6 @@ const EpisodesList = ({ podcastId, author, coverUrl600, episodes }) => {
                   coverUrl600
                 }}
               />
-              <h2 className="episodes-list__title">
-                <Link
-                  className="episodes-list__link"
-                  to={location => `${location.pathname}/${id}`}
-                >{title}</Link>
-              </h2>
-              <span className="episodes-list__published">{published}</span>
-              <span className="episodes-list__duration">{secondsToString(duration)}</span>
             </li>
           );
         })

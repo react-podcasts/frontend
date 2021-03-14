@@ -7,7 +7,9 @@ const EpisodesItems = ({ history }) => {
     <ul className="episodes-items">
       { history.map((item) => {
         return (
-          <EpisodeCard key={item.episodeId} {...item} />
+          <li className="episodes-items__item" key={item.episodeId}>
+            <EpisodeCard {...item} />
+          </li>
         );
       }) }
     </ul>

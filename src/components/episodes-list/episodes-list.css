@@ -11,10 +11,10 @@
 
 .episodes-list__item {
   display: grid;
-  grid-template-columns: min-content 1fr 120px 120px;
+  grid-template-columns: 1fr 120px 120px min-content ;
   justify-content: space-between;
   align-items: center;
-  column-gap: 16px;
+  column-gap: 24px;
   padding: 16px 0;
   border-top: 1px solid #f3f3f3;
   border-bottom: 1px solid #f3f3f3;
