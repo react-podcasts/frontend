@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { ReactComponent as PlayIcon } from './play.svg';
 import { ReactComponent as PauseIcon } from './pause.svg';
+import ProgressRing from '../progress-ring';
 import './play-control.css';
-import ProgressRing from '../progress-ring/progress-ring';
 
 const PlayControl = ({ type = 'play', theme, percent, onClick }) => {
   const Icon = type === 'play' ? PlayIcon : PauseIcon;
