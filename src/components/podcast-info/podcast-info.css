@@ -36,6 +36,16 @@
   color: #8c8c8c;
 }
 
+/* Link */
+
+.podcast-info__link {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 16px;
+  color: #3a40dd;
+  text-decoration: none;
+}
+
 /* Description */
 
 .podcast-info__description {

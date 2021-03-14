@@ -2,7 +2,7 @@ import React from 'react';
 import SubscribeButton from '../subscribe-button';
 import './podcast-info.css';
 
-const PodcastInfo = ({ coverUrl600, title, author, summary, subscribed, onSubscribe }) => {
+const PodcastInfo = ({ coverUrl600, title, author, summary, link, subscribed, onSubscribe }) => {
   return (
     <div className="podcast-info">
       <div>
@@ -21,6 +21,12 @@ const PodcastInfo = ({ coverUrl600, title, author, summary, subscribed, onSubscr
       <div>
         <h1 className="podcast-info__title">{title}</h1>
         <p className="podcast-info__author">{author}</p>
+        <a
+          className="podcast-info__link"
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+        >{link}</a>
         <p className="podcast-info__description">{summary}</p>
       </div>
     </div>
