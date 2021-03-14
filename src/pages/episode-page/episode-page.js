@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPodcastPageData } from '../../actions/podcast-page';
+import { podcastPageDataSelector } from '../../selectors/podcast-page';
 import EpisodeInfo from '../../components/episode-info';
 import EpisodeNotes from '../../components/episode-notes';
 
 const EpisodePage = () => {
   const { podcastId, episodeId } = useParams();
   const dispatch = useDispatch();
-  const { loading, error, data: {
-    id, title: podcastTitle, coverUrl600, author, episodes
-  } } = useSelector(state => state.podcastPage);
+  const { loading, error } = useSelector(state => state.podcastPage);
+  const { id, title: podcastTitle, coverUrl600, author, episodes } = useSelector(podcastPageDataSelector);
 
   useEffect(() => {
     if (!id || podcastId !== id) {
