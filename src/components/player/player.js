@@ -32,6 +32,10 @@ const Player = () => {
 
   const playerCanPlayThrough = () => {
     dispatch(actions.playerCanPlayThrough());
+    audio.current.play();
+  };
+
+  const playerPlay = () => {
     audio.current.currentTime = currentTime;
   };
 
@@ -104,6 +108,7 @@ const Player = () => {
         src={src}
         ref={audio}
         currenttime={currentTime}
+        onPlay={playerPlay}
         onCanPlayThrough={playerCanPlayThrough}
         onVolumeChange={playerChangeVolume}
         onTimeUpdate={playerTimeUpdate}
