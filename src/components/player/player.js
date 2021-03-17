@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/player';
@@ -90,11 +90,13 @@ const Player = () => {
     dispatch(actions.playerChangePlaybackRate(value));
   };
 
-  if (show && !loading && playing) {
-    audio.current.play();
-  } else if (show && !loading && !playing) {
-    audio.current.pause();
-  }
+  useEffect(() => {
+    if (show && !loading && playing) {
+      audio.current.play();
+    } else if (show && !loading && !playing) {
+      audio.current.pause();
+    }
+  }, [show, loading, playing]);
 
   if (!show) {
     return null;
