@@ -11,9 +11,11 @@ import EpisodesList from '../../components/episodes-list';
 const PodcastPage = () => {
   const { podcastId } = useParams();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.podcastPage);
-  const { id, coverUrl600, title, summary, episodes, link } = useSelector(podcastPageDataSelector);
+  const loading = useSelector(state => state.podcastPage.loading);
+  const error = useSelector(state => state.podcastPage.error);
+  const podcastPageData = useSelector(podcastPageDataSelector);
   const subscribed = useSelector(hasInSubscriptionsSelector);
+  const { id, coverUrl600, title, summary, episodes, link } = podcastPageData;
 
   useEffect(() => {
     if (podcastId !== id) {

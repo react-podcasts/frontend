@@ -9,8 +9,10 @@ import EpisodeNotes from '../../components/episode-notes';
 const EpisodePage = () => {
   const { podcastId, episodeId } = useParams();
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.podcastPage);
-  const { id, title: podcastTitle, coverUrl600, author, episodes } = useSelector(podcastPageDataSelector);
+  const loading = useSelector(state => state.podcastPage.loading);
+  const error = useSelector(state => state.podcastPage.error);
+  const podcastPageData = useSelector(podcastPageDataSelector);
+  const { id, title: podcastTitle, coverUrl600, author, episodes } = podcastPageData;
 
   useEffect(() => {
     if (!id || podcastId !== id) {

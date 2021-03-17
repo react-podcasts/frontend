@@ -8,7 +8,10 @@ import './search.css';
 
 const Search = () => {
   const [showResults, setShowResults] = useState(false);
-  const { term, loading, error, results } = useSelector(state => state.search);
+  const term = useSelector(state => state.search.term);
+  const loading = useSelector(state => state.search.loading);
+  const error = useSelector(state => state.search.error);
+  const results = useSelector(state => state.search.results);
   const dispatch = useDispatch();
   const popup = useRef();
 

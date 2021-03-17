@@ -5,7 +5,8 @@ import PlayControl from '../play-control';
 
 const PlayControlContainer = ({ selectedEpisodeData, theme }) => {
   const dispatch = useDispatch();
-  const { playing, episodeId } = useSelector(state => state.player);
+  const playing = useSelector(state => state.player.playing);
+  const episodeId = useSelector(state => state.player.episodeId);
   const history = useSelector(state => state.listeningHistory);
   const { episodeId: selectedEpisodeId, duration } = selectedEpisodeData;
   const hasInHistory = history.find(e => e.episodeId === selectedEpisodeId);

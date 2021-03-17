@@ -13,22 +13,20 @@ import './player.css';
 const Player = () => {
   const audio = useRef();
   const dispatch = useDispatch();
-  const {
-    show,
-    loading,
-    playing,
-    url,
-    title,
-    coverUrl600,
-    duration,
-    currentTime,
-    volume,
-    muted,
-    podcastId,
-    podcastTitle,
-    episodeId,
-    playbackRate
-  } = useSelector(state => state.player);
+  const show = useSelector(state => state.player.show);
+  const loading = useSelector(state => state.player.loading);
+  const playing = useSelector(state => state.player.playing);
+  const url = useSelector(state => state.player.url);
+  const title = useSelector(state => state.player.title);
+  const coverUrl600 = useSelector(state => state.player.coverUrl600);
+  const duration = useSelector(state => state.player.duration);
+  const currentTime = useSelector(state => state.player.currentTime);
+  const volume = useSelector(state => state.player.volume);
+  const muted = useSelector(state => state.player.muted);
+  const podcastId = useSelector(state => state.player.podcastId);
+  const podcastTitle = useSelector(state => state.player.podcastTitle);
+  const episodeId = useSelector(state => state.player.episodeId);
+  const playbackRate = useSelector(state => state.player.playbackRate);
 
   const playerCanPlayThrough = () => {
     dispatch(actions.playerCanPlayThrough());

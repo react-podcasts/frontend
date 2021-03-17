@@ -5,7 +5,9 @@ import DiscoverSection from '../../components/discover-section';
 
 const DiscoverPage = () => {
   const dispatch = useDispatch();
-  const { loading, error, podcasts } = useSelector(state => state.discoverPage);
+  const loading = useSelector(state => state.discoverPage.loading);
+  const error = useSelector(state => state.discoverPage.error);
+  const podcasts = useSelector(state => state.discoverPage.podcasts);
 
   useEffect(() => {
     if (podcasts.length === 0) {
