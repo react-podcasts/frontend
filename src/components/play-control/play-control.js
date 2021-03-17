@@ -1,25 +1,38 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
+import { playerPlayControl } from '../../actions/player';
+import ProgressRing from '../progress-ring';
 import { ReactComponent as PlayIcon } from './play.svg';
 import { ReactComponent as PauseIcon } from './pause.svg';
-import ProgressRing from '../progress-ring';
 import './play-control.css';
 
-const PlayControl = ({ type = 'play', theme, percent, onClick }) => {
+const PlayControl = ({ selectedEpisodeData, theme }) => {
+  const dispatch = useDispatch();
+  const playing = useSelector(state => state.player.playing);
+  const episodeId = useSelector(state => state.player.episodeId);
+  const history = useSelector(state => state.listeningHistory);
+  const { episodeId: selectedEpisodeId, duration } = selectedEpisodeData;
+  const hasInHistory = history.find(e => e.episodeId === selectedEpisodeId);
+  const currentTime = hasInHistory ? hasInHistory.currentTime : 0;
+  const percent = currentTime / duration * 100 || 0;
+  const type = playing && episodeId === selectedEpisodeId ? 'pause' : 'play';
   const Icon = type === 'play' ? PlayIcon : PauseIcon;
+  const label = `${type === 'play' ? 'Play' : 'Pause'} episode`;
   const playControlClass = classNames('play-control', {
     'play-control--theme-fill': theme === 'fill'
   });
   const playControlIconClass = classNames('play-control__icon', {
     'play-control__icon-play': type === 'play'
   });
-  const label = `${type === 'play' ? 'Play' : 'Pause'} episode`;
+
+  const handleClick = () => dispatch(playerPlayControl(selectedEpisodeData));
 
   return (
     <button
       className={playControlClass}
       type="button"
-      onClick={onClick}
+      onClick={handleClick}
       aria-label={label}
     >
       <span className="play-control__progress">

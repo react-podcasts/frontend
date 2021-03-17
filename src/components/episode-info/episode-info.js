@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlayControlContainer from '../play-control-container';
+import PlayControl from '../play-control';
 import './episode-info.css';
 
 const EpisodeInfo = ({
@@ -24,7 +24,7 @@ const EpisodeInfo = ({
           alt={podcastTitle}
         />
         <div className="episode-info__button">
-          <PlayControlContainer
+          <PlayControl
             selectedEpisodeData={{
               episodeId,
               title: episodeTitle,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { secondsToString } from '../../utils/time';
-import PlayControlContainer from '../play-control-container';
+import PlayControl from '../play-control';
 import './episodes-list.css';
 
 const EpisodesList = ({ podcastId, podcastTitle, coverUrl600, episodes }) => {
@@ -19,7 +19,7 @@ const EpisodesList = ({ podcastId, podcastTitle, coverUrl600, episodes }) => {
               </h2>
               <span className="episodes-list__published">{published}</span>
               <span className="episodes-list__duration">{secondsToString(duration)}</span>
-              <PlayControlContainer
+              <PlayControl
                 selectedEpisodeData={{
                   episodeId: id,
                   title,

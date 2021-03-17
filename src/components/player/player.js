@@ -7,7 +7,7 @@ import Range from '../range';
 import SkipControl from '../skip-control';
 import SpeedControl from '../speed-control';
 import VolumeControl from '../volume-control';
-import PlayControlContainer from '../play-control-container';
+import PlayControl from '../play-control';
 import './player.css';
 
 const Player = () => {
@@ -131,7 +131,7 @@ const Player = () => {
               type="prev"
               onClick={() => audio.current.currentTime -= 15 }
             />
-            <PlayControlContainer
+            <PlayControl
               theme="fill"
               selectedEpisodeData={{
                 episodeId
