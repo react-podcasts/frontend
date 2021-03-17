@@ -1,9 +1,25 @@
 import * as types from '../types/podcast-page';
 
 const initialState = {
-  loading: true,
+  loading: false,
   error: null,
-  data: {}
+  data: {
+    id: '',
+    coverUrl600: '',
+    title: '',
+    summary: '',
+    link: '',
+    episodes: [
+      {
+        id: '',
+        title: '',
+        published: '',
+        description: '',
+        url: '',
+        duration: ''
+      }
+    ]
+  }
 };
 
 export const podcastPage = (state = initialState, action) => {
@@ -12,8 +28,7 @@ export const podcastPage = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: null,
-        data: {}
+        error: null
       };
     case types.FETCH_PODCAST_PAGE_FAILURE:
       return {

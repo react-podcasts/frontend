@@ -13,9 +13,11 @@ const EpisodePage = () => {
   const error = useSelector(state => state.podcastPage.error);
   const podcastPageData = useSelector(podcastPageDataSelector);
   const { id, title: podcastTitle, coverUrl600, author, episodes } = podcastPageData;
+  const episode = episodes.find(i => i.id === episodeId) || episodes[0];
+  const { title, published, description, url, duration } = episode;
 
   useEffect(() => {
-    if (!id || podcastId !== id) {
+    if (podcastId !== id) {
       dispatch(getPodcastPageData(podcastId));
     }
   }, [dispatch, podcastId, id]);
@@ -31,9 +33,6 @@ const EpisodePage = () => {
       <p>Loading...</p>
     );
   }
-
-  const episode = episodes.find(i => i.id === episodeId);
-  const { title, published, description, url, duration } = episode;
 
   return (
     <div>
