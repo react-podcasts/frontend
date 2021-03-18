@@ -55,6 +55,10 @@ const Player = () => {
     dispatch(actions.playerChangePlaybackRate(value));
   };
 
+  const onEnded = () => {
+    dispatch(actions.playerEpisodeEnded());
+  };
+
   const handleProgressChange = (event) => {
     const time = event.target.value;
     audio.current.currentTime = time;
@@ -82,6 +86,7 @@ const Player = () => {
         onTimeUpdate={onTimeUpdate}
         onVolumeChange={onVolumeChange}
         onRateChange={onRateChange}
+        onEnded={onEnded}
       />
       { loading ?
         <p className="player__spinner">Loading...</p>

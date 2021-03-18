@@ -40,6 +40,10 @@ export const playerChangePlaybackRate = (value) => ({
   value
 });
 
+export const playerEpisodeEnded = () => ({
+  type: types.PLAYER_EPISODE_ENDED
+});
+
 export const playerPlayControl = (selectedEpisodeData) => (dispatch, getState) => {
   const { episodeId: selectedEpisodeId } = selectedEpisodeData;
   const { player, listeningHistory } = getState();

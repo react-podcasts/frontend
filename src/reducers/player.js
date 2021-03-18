@@ -66,6 +66,10 @@ export const player = (state = initialState, action) => {
         ...state,
         playbackRate: action.value
       };
+    case types.PLAYER_EPISODE_ENDED:
+      return {
+        ...initialState
+      };
     default:
       return state;
   }
