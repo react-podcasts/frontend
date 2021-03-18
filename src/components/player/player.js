@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import * as actions from '../../actions/player';
 import { secondsToHms } from '../../utils/time';
 import Range from '../range';
-import SkipControl from '../skip-control';
+import SkipControl from './skip-control';
 import SpeedControl from '../speed-control';
 import VolumeControl from '../volume-control';
 import PlayControl from '../play-control';
@@ -129,20 +129,14 @@ const Player = () => {
             alt={`Podcast ${podcastTitle} cover`}
           />
           <div className="player__play-controls">
-            <SkipControl
-              type="prev"
-              onClick={() => audio.current.currentTime -= 15 }
-            />
+            <SkipControl ref={audio} value={-15} />
             <PlayControl
               theme="fill"
               selectedEpisodeData={{
                 episodeId
               }}
             />
-            <SkipControl
-              type="next"
-              onClick={() => audio.current.currentTime += 30 }
-            />
+            <SkipControl ref={audio} value={30} />
           </div>
           <div className="player__controls">
             <div className="player__info">

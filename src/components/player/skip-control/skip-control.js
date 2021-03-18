@@ -3,15 +3,19 @@ import { ReactComponent as SkipNextIcon } from './skip-next.svg';
 import { ReactComponent as SkipPrevIcon } from './skip-prev.svg';
 import './skip-control.css';
 
-const SkipControl = ({ type, onClick }) => {
-  const Icon = type === 'prev' ? SkipPrevIcon : SkipNextIcon;
-  const label = `Skip ${type === 'prev' ? 'back' : 'forward'}`;
+const SkipControl = React.forwardRef(({ value }, audio) => {
+  const Icon = value < 0 ? SkipPrevIcon : SkipNextIcon;
+  const label = `Skip ${value < 0 ? 'back' : 'forward'}`;
+
+  const onSkip = () => {
+    audio.current.currentTime += value;
+  };
 
   return (
     <button
       className="skip-control"
       type="button"
-      onClick={onClick}
+      onClick={onSkip}
       aria-label={label}
     >
       <Icon
@@ -22,6 +26,6 @@ const SkipControl = ({ type, onClick }) => {
       />
     </button>
   );
-};
+});
 
 export default SkipControl;
