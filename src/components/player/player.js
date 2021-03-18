@@ -5,7 +5,7 @@ import * as actions from '../../actions/player';
 import { secondsToHms } from '../../utils/time';
 import Range from '../range';
 import SkipControl from './skip-control';
-import SpeedControl from '../speed-control';
+import SpeedControl from './speed-control';
 import VolumeControl from '../volume-control';
 import PlayControl from '../play-control';
 import './player.css';
@@ -26,7 +26,6 @@ const Player = () => {
   const podcastId = useSelector(state => state.player.podcastId);
   const podcastTitle = useSelector(state => state.player.podcastTitle);
   const episodeId = useSelector(state => state.player.episodeId);
-  const playbackRate = useSelector(state => state.player.playbackRate);
 
   const onCanPlayThrough = () => {
     audio.current.play();
@@ -69,29 +68,6 @@ const Player = () => {
 
   const handleMuteToggle = () => {
     audio.current.muted = !muted;
-  };
-
-  const handleRateChange = (value) => {
-    const oldValue = +audio.current.playbackRate;
-    const delta = +value;
-    const result = (oldValue + delta).toFixed(1);
-    audio.current.playbackRate = result;
-  };
-
-  const handleToggleRateChange = () => {
-    let result;
-
-    if (playbackRate < 1) {
-      result = 1;
-    } else if (playbackRate >= 1 && playbackRate < 1.5) {
-      result = 1.5;
-    } else if (playbackRate >= 1.5 && playbackRate < 2) {
-      result = 2;
-    } else if (playbackRate >= 2) {
-      result = 1;
-    }
-
-    audio.current.playbackRate = result;
   };
 
   useEffect(() => {
@@ -171,12 +147,7 @@ const Player = () => {
               </span>
             </div>
           </div>
-          <SpeedControl
-            value={playbackRate}
-            inc={() => handleRateChange(0.1)}
-            dec={() => handleRateChange(-0.1)}
-            toggle={handleToggleRateChange}
-          />
+          <SpeedControl ref={audio} />
           <div className="player__volume">
             <VolumeControl
               value={volume}

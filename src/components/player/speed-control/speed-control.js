@@ -1,16 +1,42 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { ReactComponent as PlusIcon } from './plus.svg';
 import { ReactComponent as MinusIcon } from './minus.svg';
 import { ReactComponent as XIcon } from './x.svg';
 import './speed-control.css';
 
-const SpeedControl = ({ value, inc, dec, toggle }) => {
+const SpeedControl = React.forwardRef((_, audio) => {
+  const playbackRate = useSelector(state => state.player.playbackRate);
+
+  const onRateChange = (value) => {
+    const oldValue = +audio.current.playbackRate;
+    const delta = +value;
+    const result = (oldValue + delta).toFixed(1);
+    audio.current.playbackRate = result;
+  };
+
+  const onToggleRateChange = () => {
+    let result;
+
+    if (playbackRate < 1) {
+      result = 1;
+    } else if (playbackRate >= 1 && playbackRate < 1.5) {
+      result = 1.5;
+    } else if (playbackRate >= 1.5 && playbackRate < 2) {
+      result = 2;
+    } else if (playbackRate >= 2) {
+      result = 1;
+    }
+
+    audio.current.playbackRate = result;
+  };
+
   return (
     <div className="speed-control">
       <button
         className="speed-control__button"
         type="button"
-        onClick={inc}
+        onClick={() => onRateChange(0.1)}
         aria-label="Increase speed"
       >
         <PlusIcon
@@ -23,10 +49,10 @@ const SpeedControl = ({ value, inc, dec, toggle }) => {
       <button
         className="speed-control__toggle"
         type="button"
-        onClick={toggle}
+        onClick={onToggleRateChange}
         aria-label="Change speed"
       >
-        <span>{value}</span>
+        <span>{playbackRate}</span>
         <XIcon
           className="speed-control__icon"
           width="12"
@@ -37,7 +63,7 @@ const SpeedControl = ({ value, inc, dec, toggle }) => {
       <button
         className="speed-control__button"
         type="button"
-        onClick={dec}
+        onClick={() => onRateChange(-0.1)}
         aria-label="Decrease speed"
       >
         <MinusIcon
@@ -49,6 +75,6 @@ const SpeedControl = ({ value, inc, dec, toggle }) => {
       </button>
     </div>
   );
-};
+});
 
 export default SpeedControl;
