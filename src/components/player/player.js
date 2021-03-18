@@ -28,23 +28,33 @@ const Player = () => {
   const episodeId = useSelector(state => state.player.episodeId);
   const playbackRate = useSelector(state => state.player.playbackRate);
 
-  const playerCanPlayThrough = () => {
-    dispatch(actions.playerCanPlayThrough());
+  const onCanPlayThrough = () => {
     audio.current.play();
+    dispatch(actions.playerCanPlayThrough());
   };
 
-  const playerPlay = () => {
+  const onPlay = () => {
     audio.current.currentTime = currentTime;
   };
 
-  const playerTimeUpdate = () => {
+  const onTimeUpdate = () => {
     const time = Math.round(audio.current.currentTime);
     dispatch(actions.playerUpdateTime(episodeId, time));
   };
 
-  const playerChangeVolume = () => {
-    const value = audio.current.volume;
-    dispatch(actions.playerChangeVolume(value));
+  const onVolumeChange = () => {
+    const { volume, muted: audioMuted } = audio.current;
+
+    if (audioMuted !== muted) {
+      dispatch(actions.playerToggleMute());
+    } else {
+      dispatch(actions.playerChangeVolume(volume));
+    }
+  };
+
+  const onRateChange = () => {
+    const value = audio.current.playbackRate;
+    dispatch(actions.playerChangePlaybackRate(value));
   };
 
   const handleProgressChange = (event) => {
@@ -52,14 +62,13 @@ const Player = () => {
     audio.current.currentTime = time;
   }
 
-  const handleChangeVolume = (event) => {
+  const handleVolumeChange = (event) => {
     const volume = event.target.value;
     audio.current.volume = volume;
   };
 
-  const handleToggleMute = () => {
+  const handleMuteToggle = () => {
     audio.current.muted = !muted;
-    dispatch(actions.playerToggleMute());
   };
 
   const handleRateChange = (value) => {
@@ -85,11 +94,6 @@ const Player = () => {
     audio.current.playbackRate = result;
   };
 
-  const playerRateChange = () => {
-    const value = audio.current.playbackRate;
-    dispatch(actions.playerChangePlaybackRate(value));
-  };
-
   useEffect(() => {
     if (show && !loading && playing) {
       audio.current.play();
@@ -105,15 +109,13 @@ const Player = () => {
   return (
     <div className="player">
       <audio
-        src={url}
         ref={audio}
-        currenttime={currentTime}
-        onPlay={playerPlay}
-        onCanPlayThrough={playerCanPlayThrough}
-        onVolumeChange={playerChangeVolume}
-        onTimeUpdate={playerTimeUpdate}
-        onRateChange={playerRateChange}
-        loop={false}
+        src={url}
+        onCanPlayThrough={onCanPlayThrough}
+        onPlay={onPlay}
+        onTimeUpdate={onTimeUpdate}
+        onVolumeChange={onVolumeChange}
+        onRateChange={onRateChange}
       />
       { loading ?
         <p className="player__spinner">Loading...</p>
@@ -185,8 +187,8 @@ const Player = () => {
             <VolumeControl
               value={volume}
               muted={muted}
-              toggleMute={handleToggleMute}
-              onChange={handleChangeVolume}
+              toggleMute={handleMuteToggle}
+              onChange={handleVolumeChange}
             />
           </div>
         </div>
