@@ -7,24 +7,24 @@
   padding: 12px 24px;
   border: none;
   border-radius: 0;
-  background-color: #e8e8e8;
+  background-color: var(--gray-500);
   font-weight: 700;
   font-family: inherit;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: -0.02em;
   text-align: center;
-  color: #8c8c8c;
+  color: var(--gray-800);
   cursor: pointer;
 }
 
 .subscribe-button:hover {
-  background-color: #fc4338;
+  background-color: var(--secondary);
   color: var(--white);
 }
 
 .subscribe-button--theme--success,
 .subscribe-button--theme--success:hover {
-  background-color: #21d184;
+  background-color: var(--success);
   color: var(--white);
 }

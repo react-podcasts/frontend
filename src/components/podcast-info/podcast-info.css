@@ -28,7 +28,7 @@
 .podcast-info__author {
   margin: 0;
   margin-bottom: 16px;
-  color: #8c8c8c;
+  color: var(--gray-800);
 }
 
 /* Link */
@@ -37,7 +37,7 @@
   display: inline-block;
   vertical-align: top;
   margin-bottom: 16px;
-  color: #3a40dd;
+  color: var(--primary);
   text-decoration: none;
 }
 

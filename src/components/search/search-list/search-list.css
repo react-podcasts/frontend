@@ -24,7 +24,7 @@
 }
 
 .search-list__link:hover {
-  background-color: #f3f3f3;
+  background-color: var(--gray-400);
 }
 
 .search-list__item:not(:last-child) .search-list__link::after {
@@ -33,7 +33,7 @@
   right: 16px;
   left: 16px;
   bottom: 0;
-  border-bottom: 1px solid #f3f3f3;
+  border-bottom: 1px solid var(--gray-400);
 }
 
 /* Cover */
@@ -61,5 +61,5 @@
   margin-top: -3px;
   font-size: 14px;
   line-height: 22px;
-  color: #8c8c8c;
+  color: var(--gray-800);
 }

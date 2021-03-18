@@ -1,6 +1,17 @@
 /* Variables */
 
 :root {
+  --primary: #3a40dd;
+  --secondary: #3addc0;
+  --cta: #fc4338;
   --black: #000000;
+  --gray-800: #8c8c8c;
+  --gray-700: #d1d1d1;
+  --gray-600: #dddddd;
+  --gray-500: #e8e8e8;
+  --gray-400: #f3f3f3;
+  --gray-300: #f9f9f9;
   --white: #ffffff;
+  --success: #21d184;
+  --error: #ff5c5c;
 }

@@ -11,7 +11,7 @@
   margin: 0;
   padding: 8px 22px;
   border: none;
-  border-bottom: 1px solid #d1d1d1;
+  border-bottom: 1px solid var(--gray-700);
   border-radius: 0;
   background-color: transparent;
   font-family: inherit;
@@ -23,7 +23,7 @@
 /* Placeholder */
 
 .search-form__input::placeholder {
-  color: #8c8c8c;
+  color: var(--gray-800);
 }
 
 /* Focus */
@@ -46,7 +46,7 @@
   top: 12px;
   left: 0;
   z-index: -1;
-  stroke: #8c8c8c;
+  stroke: var(--gray-800);
 }
 
 .search-form__input:focus + .search-form__icon-search {
@@ -80,7 +80,7 @@
 }
 
 .search-form__clear:hover .search-form__icon-close {
-  stroke: #8c8c8c;
+  stroke: var(--gray-800);
 }
 
 /* Animation Rotate */
@@ -101,7 +101,7 @@
   position: absolute;
   top: 12px;
   left: 0;
-  stroke: #3a40dd;
+  stroke: var(--primary);
   stroke-width: 4px;
   animation: rotate 2s linear infinite;
 }

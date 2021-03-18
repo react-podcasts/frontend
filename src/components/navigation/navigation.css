@@ -19,5 +19,5 @@
 /* Active Link */
 
 .navigation__link--active {
-  color: #3a40dd;
+  color: var(--primary);
 }

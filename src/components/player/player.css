@@ -74,7 +74,7 @@
   margin-top: -3px;
   font-size: 14px;
   line-height: 22px;
-  color: #8c8c8c;
+  color: var(--gray-800);
   text-decoration: none;
 }
 

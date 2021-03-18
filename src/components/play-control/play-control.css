@@ -9,7 +9,7 @@
   height: 32px;
   margin: 0;
   padding: 0;
-  border: 2px solid #3a40dd;
+  border: 2px solid var(--primary);
   /* border: none; */
   border-radius: 50%;
   /* border-radius: 0; */
@@ -18,14 +18,14 @@
 }
 
 .play-control:hover {
-  background-color: #3a40dd;
+  background-color: var(--primary);
 }
 
 /* Icon */
 
 .play-control__icon {
-  fill: #3a40dd;
-  stroke: #3a40dd;
+  fill: var(--primary);
+  stroke: var(--primary);
   stroke-width: 2px;
   stroke-linecap: round;
   stroke-linejoin: round;
