@@ -1,0 +1,21 @@
+/* Progress */
+
+.progress-control {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: center;
+  column-gap: 16px;
+}
+
+/* Time */
+
+.progress-control__time {
+  min-width: 64px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8c8c8c;
+}
+
+.progress-control__time--left {
+  text-align: right;
+}

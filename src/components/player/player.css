@@ -94,28 +94,6 @@
   column-gap: 24px;
 }
 
-/* Progress */
-
-.player__progress {
-  display: grid;
-  grid-template-columns: min-content 1fr min-content;
-  align-items: center;
-  column-gap: 16px;
-}
-
-/* Time */
-
-.player__time {
-  min-width: 64px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #8c8c8c;
-}
-
-.player__time--left {
-  text-align: right;
-}
-
 /* Volume */
 
 .player__volume {

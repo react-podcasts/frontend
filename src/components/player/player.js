@@ -2,11 +2,10 @@ import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/player';
-import { secondsToHms } from '../../utils/time';
-import Range from '../range';
 import SkipControl from './skip-control';
 import SpeedControl from './speed-control';
 import VolumeControl from './volume-control';
+import ProgressControl from './progress-control';
 import PlayControl from '../play-control';
 import './player.css';
 
@@ -19,7 +18,6 @@ const Player = () => {
   const url = useSelector(state => state.player.url);
   const title = useSelector(state => state.player.title);
   const coverUrl600 = useSelector(state => state.player.coverUrl600);
-  const duration = useSelector(state => state.player.duration);
   const currentTime = useSelector(state => state.player.currentTime);
   const muted = useSelector(state => state.player.muted);
   const podcastId = useSelector(state => state.player.podcastId);
@@ -58,11 +56,6 @@ const Player = () => {
   const onEnded = () => {
     dispatch(actions.playerEpisodeEnded());
   };
-
-  const handleProgressChange = (event) => {
-    const time = event.target.value;
-    audio.current.currentTime = time;
-  }
 
   useEffect(() => {
     if (show && !loading && playing) {
@@ -126,21 +119,7 @@ const Player = () => {
                 {podcastTitle}
               </Link>
             </div>
-            <div className="player__progress">
-              <span className="player__time player__time--left">
-                {secondsToHms(currentTime)}
-              </span>
-              <Range
-                min="0"
-                max={duration}
-                step={1}
-                value={currentTime}
-                onChange={handleProgressChange}
-              />
-              <span className="player__time">
-                -{secondsToHms(duration - currentTime)}
-              </span>
-            </div>
+            <ProgressControl ref={audio} />
           </div>
           <SpeedControl ref={audio} />
           <div className="player__volume">
