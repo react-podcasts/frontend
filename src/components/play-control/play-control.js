@@ -20,7 +20,7 @@ const PlayControl = ({ selectedEpisodeData, theme }) => {
   const Icon = type === 'play' ? PlayIcon : PauseIcon;
   const label = `${type === 'play' ? 'Play' : 'Pause'} episode`;
   const playControlClass = classNames('play-control', {
-    'play-control--theme-fill': theme === 'fill'
+    'play-control--theme--fill': theme === 'fill'
   });
   const playControlIconClass = classNames('play-control__icon', {
     'play-control__icon-play': type === 'play'

@@ -10,9 +10,7 @@
   margin: 0;
   padding: 0;
   border: 2px solid var(--primary);
-  /* border: none; */
   border-radius: 50%;
-  /* border-radius: 0; */
   background-color: transparent;
   cursor: pointer;
 }
@@ -56,18 +54,18 @@
 
 /* Theme Fill */
 
-.play-control--theme-fill,
-.play-control--theme-fill:hover {
+.play-control--theme--fill,
+.play-control--theme--fill:hover {
   border-color: var(--white);
   background-color: var(--white);
 }
 
-.play-control--theme-fill .play-control__icon,
-.play-control--theme-fill:hover .play-control__icon {
+.play-control--theme--fill .play-control__icon,
+.play-control--theme--fill:hover .play-control__icon {
   fill: var(--black);
   stroke: var(--black);
 }
 
-.play-control--theme-fill .play-control__progress {
+.play-control--theme--fill .play-control__progress {
   display: none;
 }
