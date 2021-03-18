@@ -1,15 +1,27 @@
 import React from 'react';
-import Range from '../range';
+import { useSelector } from 'react-redux';
+import Range from '../../range';
 import { ReactComponent as Volume2Icon } from './volume-2.svg';
 import { ReactComponent as Volume1Icon } from './volume-1.svg';
 import { ReactComponent as VolumeIcon } from './volume.svg';
 import { ReactComponent as VolumeXIcon } from './volume-x.svg';
 import './volume-control.css';
 
-const VolumeControl = ({ value, muted, toggleMute, onChange }) => {
-  const Icon = muted ? VolumeXIcon : value > 0.6 ?
-    Volume2Icon : value > 0.3 ?
-    Volume1Icon : value === 0 ? VolumeXIcon : VolumeIcon;
+const VolumeControl = React.forwardRef((_, audio) => {
+  const volume = useSelector(state => state.player.volume);
+  const muted = useSelector(state => state.player.muted);
+  const Icon = muted ? VolumeXIcon : volume > 0.6 ?
+    Volume2Icon : volume > 0.3 ?
+    Volume1Icon : volume === 0 ? VolumeXIcon : VolumeIcon;
+
+  const onMuteToggle = () => {
+    audio.current.muted = !muted;
+  };
+
+  const onVolumeChange = (event) => {
+    const volume = event.target.value;
+    audio.current.volume = volume;
+  };
 
   return (
     <div className="volume-control">
@@ -17,7 +29,7 @@ const VolumeControl = ({ value, muted, toggleMute, onChange }) => {
         className="volume-control__button"
         type="button"
         aria-label={muted ? 'Unmute' : 'Mute'}
-        onClick={toggleMute}
+        onClick={onMuteToggle}
       >
         <Icon
           className="volume-control__icon"
@@ -30,11 +42,11 @@ const VolumeControl = ({ value, muted, toggleMute, onChange }) => {
         min="0"
         max="1"
         step="0.1"
-        value={value}
-        onChange={onChange}
+        value={volume}
+        onChange={onVolumeChange}
       />
     </div>
   );
-};
+});
 
 export default VolumeControl;

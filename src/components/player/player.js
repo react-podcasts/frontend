@@ -6,7 +6,7 @@ import { secondsToHms } from '../../utils/time';
 import Range from '../range';
 import SkipControl from './skip-control';
 import SpeedControl from './speed-control';
-import VolumeControl from '../volume-control';
+import VolumeControl from './volume-control';
 import PlayControl from '../play-control';
 import './player.css';
 
@@ -21,7 +21,6 @@ const Player = () => {
   const coverUrl600 = useSelector(state => state.player.coverUrl600);
   const duration = useSelector(state => state.player.duration);
   const currentTime = useSelector(state => state.player.currentTime);
-  const volume = useSelector(state => state.player.volume);
   const muted = useSelector(state => state.player.muted);
   const podcastId = useSelector(state => state.player.podcastId);
   const podcastTitle = useSelector(state => state.player.podcastTitle);
@@ -60,15 +59,6 @@ const Player = () => {
     const time = event.target.value;
     audio.current.currentTime = time;
   }
-
-  const handleVolumeChange = (event) => {
-    const volume = event.target.value;
-    audio.current.volume = volume;
-  };
-
-  const handleMuteToggle = () => {
-    audio.current.muted = !muted;
-  };
 
   useEffect(() => {
     if (show && !loading && playing) {
@@ -149,12 +139,7 @@ const Player = () => {
           </div>
           <SpeedControl ref={audio} />
           <div className="player__volume">
-            <VolumeControl
-              value={volume}
-              muted={muted}
-              toggleMute={handleMuteToggle}
-              onChange={handleVolumeChange}
-            />
+            <VolumeControl ref={audio} />
           </div>
         </div>
       }
