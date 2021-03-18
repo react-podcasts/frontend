@@ -25,7 +25,6 @@ const Player = () => {
   const episodeId = useSelector(state => state.player.episodeId);
 
   const onCanPlayThrough = () => {
-    audio.current.play();
     dispatch(actions.playerCanPlayThrough());
   };
 
@@ -33,9 +32,15 @@ const Player = () => {
     audio.current.currentTime = currentTime;
   };
 
+  const onPause = () => {
+    dispatch(actions.playerPause());
+  };
+
   const onTimeUpdate = () => {
-    const time = Math.round(audio.current.currentTime);
-    dispatch(actions.playerUpdateTime(episodeId, time));
+    if (!loading) {
+      const time = Math.round(audio.current.currentTime);
+      dispatch(actions.playerUpdateTime(episodeId, time));
+    }
   };
 
   const onVolumeChange = () => {
@@ -76,6 +81,7 @@ const Player = () => {
         src={url}
         onCanPlayThrough={onCanPlayThrough}
         onPlay={onPlay}
+        onPause={onPause}
         onTimeUpdate={onTimeUpdate}
         onVolumeChange={onVolumeChange}
         onRateChange={onRateChange}

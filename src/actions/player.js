@@ -10,7 +10,7 @@ const playerPlay = () => ({
   type: types.PLAYER_PLAY
 });
 
-const playerPause = () => ({
+export const playerPause = () => ({
   type: types.PLAYER_PAUSE
 });
 
