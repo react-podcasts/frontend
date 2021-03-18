@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDiscoverPageData } from '../../actions/discover-page';
+import Loader from '../../components/loader';
 import DiscoverSection from '../../components/discover-section';
 
 const DiscoverPage = () => {
@@ -17,7 +18,7 @@ const DiscoverPage = () => {
 
   if (loading) {
     return (
-      <p>Loading...</p>
+      <Loader />
     );
   }
 

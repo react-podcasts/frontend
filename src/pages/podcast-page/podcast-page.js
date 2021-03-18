@@ -5,6 +5,7 @@ import { getPodcastPageData } from '../../actions/podcast-page';
 import { subscriptionsChange } from '../../actions/subscriptions';
 import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
+import Loader from '../../components/loader';
 import PodcastInfo from '../../components/podcast-info';
 import EpisodesList from '../../components/episodes-list';
 
@@ -35,7 +36,7 @@ const PodcastPage = () => {
 
   if (loading) {
     return (
-      <p>Loading...</p>
+      <Loader />
     );
   }
 

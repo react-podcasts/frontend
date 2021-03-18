@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPodcastPageData } from '../../actions/podcast-page';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
+import Loader from '../../components/loader';
 import EpisodeInfo from '../../components/episode-info';
 import EpisodeNotes from '../../components/episode-notes';
 
@@ -30,7 +31,7 @@ const EpisodePage = () => {
 
   if (loading) {
     return (
-      <p>Loading...</p>
+      <Loader />
     );
   }
 
