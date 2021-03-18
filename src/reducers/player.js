@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   canPlayThrough: false,
   playing: false,
-  src: '',
+  url: '',
   muted: false,
   duration: 0,
   currentTime: 0,
@@ -13,9 +13,10 @@ const initialState = {
   volume: 1,
   episodeId: '',
   podcastId: '',
+  podcastTitle: '',
   title: '',
   coverUrl600: '',
-  author: ''
+  published: ''
 };
 
 export const player = (state = initialState, action) => {
