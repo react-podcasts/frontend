@@ -1,4 +1,5 @@
 import React from 'react';
+import Heading from '../heading';
 import SubscribeButton from '../subscribe-button';
 import './podcast-info.css';
 
@@ -19,7 +20,9 @@ const PodcastInfo = ({ coverUrl600, title, author, summary, link, subscribed, on
         />
       </div>
       <div>
-        <h1 className="podcast-info__title">{title}</h1>
+        <div className="podcast-info__title">
+          <Heading size="h4">{title}</Heading>
+        </div>
         <p className="podcast-info__author">{author}</p>
         <a
           className="podcast-info__link"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Heading from '../../components/heading';
 import EpisodesItems from '../../components/episodes-items';
 
 const ListeningHistoryPage = () => {
@@ -13,7 +14,7 @@ const ListeningHistoryPage = () => {
 
   return (
     <section>
-      <h2>Listening History</h2>
+      <Heading size="h4">Listening History</Heading>
       <EpisodesItems history={history} />
     </section>
   );

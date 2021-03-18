@@ -20,12 +20,7 @@
 /* Title */
 
 .podcast-info__title {
-  margin: 0;
   margin-bottom: 16px;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
-  letter-spacing: -0.02em;
 }
 
 /* Author */

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Heading from '../heading';
 import PlayControl from '../play-control';
 import './episode-info.css';
 
@@ -43,7 +44,9 @@ const EpisodeInfo = ({
           className="episode-info__author"
           to={`/podcast/${podcastId}`}
         >{podcastTitle}</Link>
-        <h1 className="episode-info__title">{episodeTitle}</h1>
+        <div className="episode-info__title">
+          <Heading size="h5">{episodeTitle}</Heading>
+        </div>
         <p className="episode-info__published">{published}</p>
       </div>
     </div>
