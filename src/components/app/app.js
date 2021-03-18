@@ -6,6 +6,9 @@ import HomePage from '../../pages/home-page';
 import PodcastPage from '../../pages/podcast-page';
 import EpisodePage from '../../pages/episode-page';
 import DiscoverPage from '../../pages/discover-page';
+import NewReleasesPage from '../../pages/new-releases-page';
+import InProgressPage from '../../pages/in-progress-page';
+import StarredPage from '../../pages/starred-page';
 import ListeningHistoryPage from '../../pages/listening-history-page';
 import './app.css';
 
@@ -19,9 +22,9 @@ const App = () => {
           <Route path="/podcast/:podcastId" exact component={PodcastPage} />
           <Route path="/podcast/:podcastId/:episodeId" component={EpisodePage} />
           <Route path="/discover" component={DiscoverPage} />
-          <Route path="/new-releases" render={() => <p>New Releases Page</p>} />
-          <Route path="/in-progress" render={() => <p>In Progress Page</p>} />
-          <Route path="/starred" render={() => <p>Starred Page</p>} />
+          <Route path="/new-releases" component={NewReleasesPage} />
+          <Route path="/in-progress" component={InProgressPage} />
+          <Route path="/starred" component={StarredPage} />
           <Route path="/listening-history" component={ListeningHistoryPage} />
         </Switch>
       </main>
