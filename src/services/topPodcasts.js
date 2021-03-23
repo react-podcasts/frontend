@@ -1,4 +1,4 @@
-const baseUrl = 'https://rss.itunes.apple.com/api/v1/ru/podcasts/top-podcasts';
+const baseUrl = process.env.REACT_APP_URL_API;
 
 const transformPodcastData = (podcast) => {
   return {
@@ -16,6 +16,6 @@ const fetchData = async (url) => {
 };
 
 export const getPodcastByGenre = async (genre = 'all', count = 25) => {
-  const data = await fetchData(`${baseUrl}/${genre}/${count}/explicit.json`);
+  const data = await fetchData(`${baseUrl}/top?genre=${genre}&count=${count}`);
   return data;
 };

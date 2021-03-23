@@ -1,4 +1,4 @@
-const baseUrl = 'https://itunes.apple.com/';
+const baseUrl = process.env.REACT_APP_URL_API;
 
 const transformPodcastData = (podcast) => {
   return {
@@ -28,11 +28,11 @@ const fetchData = async (url) => {
 };
 
 export const fetchDataById = async (podcastId) => {
-  const data = await fetchData(`${baseUrl}lookup?id=${podcastId}`);
+  const data = await fetchData(`${baseUrl}/lookup?id=${podcastId}`);
   return transformFeedData(data[0]);
 };
 
 export const fetchPodcasts = async (term) => {
-  const podcasts = await fetchData(`${baseUrl}search?term=${term}&entity=podcast&country=RU`);
+  const podcasts = await fetchData(`${baseUrl}/search?term=${term}`);
   return podcasts.map(transformPodcastData);
 };

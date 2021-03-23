@@ -1,4 +1,4 @@
-const baseUrl = process.env.REACT_APP_FEED_API;
+const baseUrl = process.env.REACT_APP_URL_API;
 
 const fetchData = async (url) => {
   const response = await fetch(url);
