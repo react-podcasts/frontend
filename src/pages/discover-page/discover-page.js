@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDiscoverPageData } from '../../actions/discover-page';
+import Subhead from '../../components/ui/subhead';
+import Heading from '../../components/ui/heading';
 import Loader from '../../components/ui/loader';
-import DiscoverSection from '../../components/discover/discover-section';
+import DiscoverList from '../../components/discover/discover-list';
 
 const DiscoverPage = () => {
   const dispatch = useDispatch();
@@ -29,10 +31,14 @@ const DiscoverPage = () => {
   }
 
   return (
-    <DiscoverSection
-      title="Top Podcasts in Russia"
-      podcasts={podcasts}
-    />
+    <section>
+      <Subhead>
+        <Heading as="h2" size="h4">
+          Top Podcasts in Russia
+        </Heading>
+      </Subhead>
+      <DiscoverList podcasts={podcasts} />
+    </section>
   );
 };
 

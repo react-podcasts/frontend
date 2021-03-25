@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Subhead from '../../components/ui/subhead';
 import Heading from '../../components/ui/heading';
-import EpisodesItems from '../../components/episodes/episodes-items';
 import Blankslate from '../../components/common/blankslate';
+import EpisodesItems from '../../components/episodes/episodes-items';
 
 const ListeningHistoryPage = () => {
   const history = useSelector(state => state.listeningHistory);
@@ -18,7 +19,9 @@ const ListeningHistoryPage = () => {
 
   return (
     <section>
-      <Heading size="h4">Listening History</Heading>
+      <Subhead>
+        <Heading size="h4">Listening History</Heading>
+      </Subhead>
       <EpisodesItems history={history} />
     </section>
   );
