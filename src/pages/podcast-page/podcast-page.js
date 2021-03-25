@@ -7,7 +7,8 @@ import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
 import Loader from '../../components/ui/loader';
 import PodcastHead from '../../components/podcast/podcast-head';
-import EpisodesList from '../../components/episodes/episodes-list';
+import { EpisodeList, EpisodeListItem } from '../../components/episodes/episode-list';
+import EpisodeCard from '../../components/episodes/episode-card';
 
 const PodcastPage = () => {
   const { podcastId } = useParams();
@@ -51,12 +52,27 @@ const PodcastPage = () => {
         subscribed={subscribed}
         onSubscribe={onSubscribe}
       />
-      <EpisodesList
-        podcastId={podcastId}
-        podcastTitle={title}
-        coverUrl600={coverUrl600}
-        episodes={episodes}
-      />
+      <EpisodeList>
+        {
+          episodes.map((episode) => {
+            return (
+              <EpisodeListItem key={episode.id}>
+                <EpisodeCard
+                  noImage
+                  noPodcastLink
+                  episodeData={{
+                    episodeId: episode.id,
+                    podcastId,
+                    coverUrl600,
+                    podcastTitle: title,
+                    ...episode
+                  }}
+                />
+              </EpisodeListItem>
+            );
+          })
+        }
+      </EpisodeList>
     </>
   );
 };

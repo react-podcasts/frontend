@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import Subhead from '../../components/ui/subhead';
 import Heading from '../../components/ui/heading';
 import Blankslate from '../../components/common/blankslate';
-import EpisodesItems from '../../components/episodes/episodes-items';
+import { EpisodeList, EpisodeListItem } from '../../components/episodes/episode-list';
+import EpisodeCard from '../../components/episodes/episode-card';
 
 const ListeningHistoryPage = () => {
   const history = useSelector(state => state.listeningHistory);
@@ -22,7 +23,21 @@ const ListeningHistoryPage = () => {
       <Subhead>
         <Heading size="h4">Listening History</Heading>
       </Subhead>
-      <EpisodesItems history={history} />
+      <EpisodeList>
+        {
+          history.map((episode) => {
+            return (
+              <EpisodeListItem key={episode.episodeId}>
+                <EpisodeCard
+                  episodeData={{
+                    ...episode
+                  }}
+                />
+              </EpisodeListItem>
+            );
+          })
+        }
+      </EpisodeList>
     </section>
   );
 };

@@ -17,6 +17,12 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Index */
+
+.episode-card__index {
+  white-space: nowrap;
+}
+
 /* Title */
 
 .episode-card__title {
@@ -25,6 +31,21 @@
   font-size: 15px;
   line-height: 24px;
   color: var(--black);
+}
+
+.episode-card__title--regular {
+  font-weight: 400;
+}
+
+/* Link */
+
+.episode-card__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.episode-card__link:hover {
+  color: var(--primary);
 }
 
 /* Author */
@@ -37,15 +58,21 @@
   color: var(--gray-800);
 }
 
-/* Link */
+/* Published */
 
-.episode-card__link {
-  text-decoration: none;
-  color: inherit;
+.episode-card__published {
+  margin: 0;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--gray-800);
 }
 
 /* Duration */
 
 .episode-card__duration {
+  margin: 0;
+  font-size: 15px;
+  line-height: 24px;
   text-align: right;
+  color: var(--gray-800);
 }
