@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Heading from '../heading';
-import PlayControl from '../play-control';
+import Heading from '../../ui/heading';
+import PlayControl from '../../common/play-control';
 import './episode-info.css';
 
 const EpisodeInfo = ({

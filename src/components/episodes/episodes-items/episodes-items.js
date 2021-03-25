@@ -1,5 +1,5 @@
 import React from 'react';
-import EpisodeCard from '../episode-card';
+import EpisodeCard from '../../episodes/episode-card';
 import './episodes-items.css';
 
 const EpisodesItems = ({ history }) => {

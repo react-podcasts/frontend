@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Range from '../../range';
+import Range from '../../ui/range';
 import { ReactComponent as Volume2Icon } from './volume-2.svg';
 import { ReactComponent as Volume1Icon } from './volume-1.svg';
 import { ReactComponent as VolumeIcon } from './volume.svg';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Range from '../../range';
+import Range from '../../ui/range';
 import { secondsToHms } from '../../../utils/time';
 import './progress-control.css';
 

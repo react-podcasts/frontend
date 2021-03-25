@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import { playerPlayControl } from '../../actions/player';
-import ProgressRing from '../progress-ring';
+import { playerPlayControl } from '../../../actions/player';
+import ProgressRing from '../../ui/progress-ring';
 import { ReactComponent as PlayIcon } from './play.svg';
 import { ReactComponent as PauseIcon } from './pause.svg';
 import './play-control.css';

@@ -6,7 +6,7 @@ import SkipControl from './skip-control';
 import SpeedControl from './speed-control';
 import VolumeControl from './volume-control';
 import ProgressControl from './progress-control';
-import PlayControl from '../play-control';
+import PlayControl from '../common/play-control';
 import './player.css';
 
 const Player = () => {

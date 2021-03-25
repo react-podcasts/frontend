@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { secondsToString } from '../../utils/time';
-import PlayControl from '../play-control';
+import { secondsToString } from '../../../utils/time';
+import PlayControl from '../../common/play-control';
 import './episode-card.css';
 
 const EpisodeCard = ({

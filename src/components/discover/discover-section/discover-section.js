@@ -1,6 +1,6 @@
 import React from 'react';
 import DiscoverList from '../discover-list';
-import Heading from '../heading';
+import Heading from '../../ui/heading';
 import './discover-section.css';
 
 const DiscoverSection = ({ title, podcasts }) => {

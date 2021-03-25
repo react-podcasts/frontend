@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Heading from '../../components/heading';
-import EpisodesItems from '../../components/episodes-items';
-import Blankslate from '../../components/blankslate';
+import Heading from '../../components/ui/heading';
+import EpisodesItems from '../../components/episodes/episodes-items';
+import Blankslate from '../../components/common/blankslate';
 
 const ListeningHistoryPage = () => {
   const history = useSelector(state => state.listeningHistory);

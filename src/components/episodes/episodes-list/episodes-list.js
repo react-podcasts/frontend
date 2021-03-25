@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { secondsToString } from '../../utils/time';
-import PlayControl from '../play-control';
+import { secondsToString } from '../../../utils/time';
+import PlayControl from '../../common/play-control';
 import './episodes-list.css';
 
 const EpisodesList = ({ podcastId, podcastTitle, coverUrl600, episodes }) => {

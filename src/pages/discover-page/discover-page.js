@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDiscoverPageData } from '../../actions/discover-page';
-import Loader from '../../components/loader';
-import DiscoverSection from '../../components/discover-section';
+import Loader from '../../components/ui/loader';
+import DiscoverSection from '../../components/discover/discover-section';
 
 const DiscoverPage = () => {
   const dispatch = useDispatch();

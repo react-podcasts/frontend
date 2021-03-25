@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Blankslate from '../../components/blankslate';
-import SubscriptionsList from '../../components/subscriptions-list';
+import Blankslate from '../../components/common/blankslate';
+import SubscriptionsList from '../../components/subscriptions/subscriptions-list';
 
 const HomePage = () => {
   const subscriptions = useSelector(state => state.subscriptions);

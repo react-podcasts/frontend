@@ -1,5 +1,5 @@
 import React from 'react';
-import Heading from '../heading';
+import Heading from '../../ui/heading';
 import SubscribeButton from '../subscribe-button';
 import './podcast-info.css';
 
