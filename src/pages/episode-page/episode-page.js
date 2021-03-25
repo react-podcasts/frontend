@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getPodcastPageData } from '../../actions/podcast-page';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
 import Loader from '../../components/ui/loader';
-import EpisodeInfo from '../../components/episodes/episode-info';
+import EpisodeHead from '../../components/episodes/episode-head';
 import EpisodeNotes from '../../components/episodes/episode-notes';
 
 const EpisodePage = () => {
@@ -37,7 +37,7 @@ const EpisodePage = () => {
 
   return (
     <div>
-      <EpisodeInfo
+      <EpisodeHead
         podcastId={podcastId}
         episodeId={episodeId}
         episodeTitle={title}

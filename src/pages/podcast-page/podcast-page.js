@@ -6,7 +6,7 @@ import { subscriptionsChange } from '../../actions/subscriptions';
 import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
 import Loader from '../../components/ui/loader';
-import PodcastInfo from '../../components/podcast/podcast-info';
+import PodcastHead from '../../components/podcast/podcast-head';
 import EpisodesList from '../../components/episodes/episodes-list';
 
 const PodcastPage = () => {
@@ -42,7 +42,7 @@ const PodcastPage = () => {
 
   return (
     <>
-      <PodcastInfo
+      <PodcastHead
         coverUrl600={coverUrl600}
         title={title}
         summary={summary}

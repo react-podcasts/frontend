@@ -1,14 +1,16 @@
 import React from 'react';
 import Heading from '../../ui/heading';
 import SubscribeButton from '../subscribe-button';
-import './podcast-info.css';
+import './podcast-head.css';
 
-const PodcastInfo = ({ coverUrl600, title, author, summary, link, subscribed, onSubscribe }) => {
+const PodcastHead = (props) => {
+  const { coverUrl600, title, author, summary, link, subscribed, onSubscribe } = props;
+
   return (
-    <div className="podcast-info">
+    <div className="podcast-head">
       <div>
         <img
-          className="podcast-info__image"
+          className="podcast-head__image"
           src={coverUrl600}
           width="210"
           height="210"
@@ -20,20 +22,20 @@ const PodcastInfo = ({ coverUrl600, title, author, summary, link, subscribed, on
         />
       </div>
       <div>
-        <div className="podcast-info__title">
+        <div className="podcast-head__title">
           <Heading size="h4">{title}</Heading>
         </div>
-        <p className="podcast-info__author">{author}</p>
+        <p className="podcast-head__author">{author}</p>
         <a
-          className="podcast-info__link"
+          className="podcast-head__link"
           href={link}
           target="_blank"
           rel="noreferrer"
         >{link}</a>
-        <p className="podcast-info__description">{summary}</p>
+        <p className="podcast-head__description">{summary}</p>
       </div>
     </div>
   );
 };
 
-export default PodcastInfo;
+export default PodcastHead;

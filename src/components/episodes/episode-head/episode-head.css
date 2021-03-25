@@ -1,6 +1,6 @@
-/* Episode Info */
+/* Episode Head */
 
-.episode-info {
+.episode-head {
   display: grid;
   grid-template-columns: 210px 1fr;
   column-gap: 32px;
@@ -8,7 +8,7 @@
 
 /* Cover */
 
-.episode-info__cover {
+.episode-head__cover {
   position: relative;
   border-radius: 4px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
@@ -17,13 +17,13 @@
 
 /* Image */
 
-.episode-info__image {
+.episode-head__image {
   display: block;
 }
 
 /* Button */
 
-.episode-info__button {
+.episode-head__button {
   position: absolute;
   top: 0;
   right: 0;
@@ -37,7 +37,7 @@
 
 /* Author */
 
-.episode-info__author {
+.episode-head__author {
   display: inline-block;
   vertical-align: top;
   margin-bottom: 16px;
@@ -47,13 +47,13 @@
 
 /* Title */
 
-.episode-info__title {
+.episode-head__title {
   margin-bottom: 16px;
 }
 
 /* Published */
 
-.episode-info__published {
+.episode-head__published {
   margin: 0;
   color: var(--gray-800);
 }
