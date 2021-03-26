@@ -12,7 +12,7 @@ const subscriptionsRemovePodcast = (podcastId) => ({
 
 export const subscriptionsChange = (podcastId, subscribed) => (dispatch, getState) => {
   const { podcastPage } = getState();
-  const { title, coverUrl600 } = podcastPage.data;
+  const { title, author, coverUrl600 } = podcastPage.data;
 
   if (subscribed) {
     dispatch(subscriptionsRemovePodcast(podcastId));
@@ -20,6 +20,7 @@ export const subscriptionsChange = (podcastId, subscribed) => (dispatch, getStat
     const podcastData = {
       id: podcastId,
       title,
+      author,
       coverUrl600
     };
     dispatch(subscriptionsAddPodcast(podcastData));

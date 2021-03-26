@@ -1,0 +1,10 @@
+/* Podcasts Grid */
+
+.podcasts-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

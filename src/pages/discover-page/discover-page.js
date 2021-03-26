@@ -4,7 +4,7 @@ import { getDiscoverPageData } from '../../actions/discover-page';
 import Subhead from '../../components/ui/subhead';
 import Heading from '../../components/ui/heading';
 import Loader from '../../components/ui/loader';
-import DiscoverList from '../../components/discover/discover-list';
+import PodcastsGrid from '../../components/common/podcasts-grid';
 
 const DiscoverPage = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const DiscoverPage = () => {
           Top Podcasts in Russia
         </Heading>
       </Subhead>
-      <DiscoverList podcasts={podcasts} />
+      <PodcastsGrid podcasts={podcasts} />
     </section>
   );
 };

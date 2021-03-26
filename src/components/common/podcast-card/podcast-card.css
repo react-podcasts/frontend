@@ -1,23 +1,12 @@
-/* Discover List */
+/* Podcast Card */
 
-.discover-list {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Link */
-
-.discover-list__link {
+.podcast-card {
   text-decoration: none;
 }
 
 /* Image */
 
-.discover-list__image {
+.podcast-card__image {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
@@ -26,7 +15,7 @@
 
 /* Title */
 
-.discover-list__title {
+.podcast-card__title {
   margin: 0;
   font-weight: 700;
   font-size: 15px;
@@ -36,7 +25,7 @@
 
 /* Author */
 
-.discover-list__author {
+.podcast-card__author {
   margin: 0;
   font-size: 14px;
   line-height: 22px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Blankslate from '../../components/common/blankslate';
-import SubscriptionsList from '../../components/subscriptions/subscriptions-list';
+import PodcastsGrid from '../../components/common/podcasts-grid';
 
 const HomePage = () => {
   const subscriptions = useSelector(state => state.subscriptions);
@@ -16,7 +16,7 @@ const HomePage = () => {
   }
 
   return (
-    <SubscriptionsList subscriptions={subscriptions} />
+    <PodcastsGrid podcasts={subscriptions} />
   );
 };
 
