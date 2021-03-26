@@ -7,33 +7,13 @@
   padding-bottom: 32px;
 }
 
-/* Cover */
-
-.episode-head__cover {
-  position: relative;
-  border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-
 /* Image */
 
 .episode-head__image {
   display: block;
-}
-
-/* Button */
-
-.episode-head__button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Author */

@@ -1,21 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
+import Button from '../../ui/button';
 import './subscribe-button.css';
 
 const SubscribeButton = ({ subscribed, onSubscribe }) => {
   const buttonText = subscribed ? 'Unsubscribe' : 'Subscribe';
-  const buttonClass = classNames(
-    'subscribe-button', {
-      'subscribe-button--theme--success': !subscribed,
-    }
-  );
+  const buttonClass = classNames('subscribe-button', {
+    'subscribe-button--subscribed': subscribed
+  });
 
   return (
-    <button
+    <Button
       className={buttonClass}
-      type="button"
       onClick={onSubscribe}
-    >{buttonText}</button>
+    >{buttonText}</Button>
   );
 };
 
