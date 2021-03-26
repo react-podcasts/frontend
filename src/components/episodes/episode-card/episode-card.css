@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+.episode-card--noindex {
+  grid-template-columns: 1fr 120px 60px min-content;
+}
+
 /* Image */
 
 .episode-card__image {
@@ -21,6 +25,9 @@
 
 .episode-card__index {
   white-space: nowrap;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--gray-800);
 }
 
 /* Title */

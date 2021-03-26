@@ -41,8 +41,13 @@ const EpisodeCard = ({ episodeData, noImage, noPodcastLink }) => {
     return index;
   };
 
+  const episodeIndex = getEpisodeIndex();
+  const episodeCardClass = classNames('episode-card', {
+    'episode-card--noindex': noImage && !episodeIndex
+  });
+
   return (
-    <div className="episode-card">
+    <div className={episodeCardClass}>
       { !noImage &&
         <img
           className="episode-card__image"
@@ -52,8 +57,8 @@ const EpisodeCard = ({ episodeData, noImage, noPodcastLink }) => {
           alt={title}
         />
       }
-      { noImage &&
-        <span className="episode-card__index">{getEpisodeIndex()}</span>
+      { noImage && episodeIndex &&
+        <span className="episode-card__index">{episodeIndex}</span>
       }
       <div>
         <h3 className={titleClass}>
