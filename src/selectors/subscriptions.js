@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
-const subscriptionsSelector = state => state.subscriptions;
-const podcastIdSelector = state => state.podcastPage.data.id;
+export const subscriptionsSelector = (state) => state.subscriptions;
+const podcastIdSelector = (state) => state.podcastPage.data.id;
 
 export const hasInSubscriptionsSelector = createSelector(
   subscriptionsSelector,

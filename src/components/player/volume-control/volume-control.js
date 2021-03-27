@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { playerMutedSelector, playerVolumeSelector } from '../../../selectors/player';
 import Range from '../../ui/range';
 import { ReactComponent as Volume2Icon } from './volume-2.svg';
 import { ReactComponent as Volume1Icon } from './volume-1.svg';
@@ -8,8 +9,8 @@ import { ReactComponent as VolumeXIcon } from './volume-x.svg';
 import './volume-control.css';
 
 const VolumeControl = React.forwardRef((_, audio) => {
-  const volume = useSelector(state => state.player.volume);
-  const muted = useSelector(state => state.player.muted);
+  const volume = useSelector(playerVolumeSelector);
+  const muted = useSelector(playerMutedSelector);
   const Icon = muted ? VolumeXIcon : volume > 0.6 ?
     Volume2Icon : volume > 0.3 ?
     Volume1Icon : volume === 0 ? VolumeXIcon : VolumeIcon;

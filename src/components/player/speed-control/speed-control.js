@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { playerPlaybackRateSelector } from '../../../selectors/player';
 import { ReactComponent as PlusIcon } from './plus.svg';
 import { ReactComponent as MinusIcon } from './minus.svg';
 import { ReactComponent as XIcon } from './x.svg';
 import './speed-control.css';
 
 const SpeedControl = React.forwardRef((_, audio) => {
-  const playbackRate = useSelector(state => state.player.playbackRate);
+  const playbackRate = useSelector(playerPlaybackRateSelector);
 
   const onRateChange = (value) => {
     const oldValue = +audio.current.playbackRate;

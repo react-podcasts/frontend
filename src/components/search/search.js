@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { findPodcasts, clearSearchTerm } from '../../actions/search';
+import * as selectors from '../../selectors/search';
 import SearchForm from './search-form';
 import SearchList from './search-list';
 import SearchError from './search-error';
@@ -8,10 +9,10 @@ import './search.css';
 
 const Search = () => {
   const [showResults, setShowResults] = useState(false);
-  const term = useSelector(state => state.search.term);
-  const loading = useSelector(state => state.search.loading);
-  const error = useSelector(state => state.search.error);
-  const results = useSelector(state => state.search.results);
+  const term = useSelector(selectors.searchTermSelector);
+  const loading = useSelector(selectors.searchLoadingSelector);
+  const error = useSelector(selectors.searchErrorSelector);
+  const results = useSelector(selectors.searchResultsSelector);
   const dispatch = useDispatch();
   const popup = useRef();
 

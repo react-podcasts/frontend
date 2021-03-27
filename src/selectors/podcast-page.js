@@ -1,1 +1,3 @@
-export const podcastPageDataSelector = (state) => state.podcastPage.data;
+export const podcastLoadingSelector = (state) => state.podcastPage.loading;
+export const podcastErrorSelector = (state) => state.podcastPage.error;
+export const podcastDataSelector = (state) => state.podcastPage.data;

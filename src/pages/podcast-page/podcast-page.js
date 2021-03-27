@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getPodcastPageData } from '../../actions/podcast-page';
 import { subscriptionsChange } from '../../actions/subscriptions';
 import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
-import { podcastPageDataSelector } from '../../selectors/podcast-page';
+import * as selectors from '../../selectors/podcast-page';
 import Loader from '../../components/ui/loader';
 import Blankslate from '../../components/common/blankslate';
 import PodcastHead from '../../components/podcast/podcast-head';
@@ -14,11 +14,11 @@ import EpisodeCard from '../../components/episodes/episode-card';
 const PodcastPage = () => {
   const { podcastId } = useParams();
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.podcastPage.loading);
-  const error = useSelector(state => state.podcastPage.error);
-  const podcastPageData = useSelector(podcastPageDataSelector);
+  const loading = useSelector(selectors.podcastLoadingSelector);
+  const error = useSelector(selectors.podcastErrorSelector);
+  const podcastData = useSelector(selectors.podcastDataSelector);
   const subscribed = useSelector(hasInSubscriptionsSelector);
-  const { id, coverUrl600, title, author, summary, episodes, link } = podcastPageData;
+  const { id, coverUrl600, title, author, summary, episodes, link } = podcastData;
 
   useEffect(() => {
     if (podcastId !== id) {

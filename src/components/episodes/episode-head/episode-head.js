@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { playerPlayControl } from '../../../actions/player';
+import { playerPlayingSelector, playerEpisodeIdSelector } from '../../../selectors/player';
 import Heading from '../../ui/heading';
 import Button from '../../ui/button';
 import './episode-head.css';
@@ -9,8 +10,8 @@ import './episode-head.css';
 const EpisodeHead = (props) => {
   const { podcastId, episodeId, podcastTitle, episodeTitle, coverUrl600, published, url, duration } = props;
   const dispatch = useDispatch();
-  const playing = useSelector(state => state.player.playing);
-  const playingEpisodeId = useSelector(state => state.player.episodeId);
+  const playing = useSelector(playerPlayingSelector);
+  const playingEpisodeId = useSelector(playerEpisodeIdSelector);
   const selectedEpisodeData={
     episodeId,
     title: episodeTitle,

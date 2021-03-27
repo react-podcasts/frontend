@@ -1,10 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { subscriptionsSelector } from '../../selectors/subscriptions';
 import Blankslate from '../../components/common/blankslate';
 import PodcastsGrid from '../../components/common/podcasts-grid';
 
 const HomePage = () => {
-  const subscriptions = useSelector(state => state.subscriptions);
+  const subscriptions = useSelector(subscriptionsSelector);
 
   if (subscriptions.length === 0) {
     return (

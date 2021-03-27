@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/player';
+import * as selectors from '../../selectors/player';
 import SkipControl from './skip-control';
 import SpeedControl from './speed-control';
 import VolumeControl from './volume-control';
@@ -12,17 +13,17 @@ import './player.css';
 const Player = () => {
   const audio = useRef();
   const dispatch = useDispatch();
-  const show = useSelector(state => state.player.show);
-  const loading = useSelector(state => state.player.loading);
-  const playing = useSelector(state => state.player.playing);
-  const url = useSelector(state => state.player.url);
-  const title = useSelector(state => state.player.title);
-  const coverUrl600 = useSelector(state => state.player.coverUrl600);
-  const currentTime = useSelector(state => state.player.currentTime);
-  const muted = useSelector(state => state.player.muted);
-  const podcastId = useSelector(state => state.player.podcastId);
-  const podcastTitle = useSelector(state => state.player.podcastTitle);
-  const episodeId = useSelector(state => state.player.episodeId);
+  const show = useSelector(selectors.playerShowSelector);
+  const loading = useSelector(selectors.playerLoadingSelector);
+  const playing = useSelector(selectors.playerPlayingSelector);
+  const url = useSelector(selectors.playerUrlSelector);
+  const title = useSelector(selectors.playerTitleSelector);
+  const coverUrl600 = useSelector(selectors.playerCoverUrl600Selector);
+  const currentTime = useSelector(selectors.playerCurrentTimeSelector);
+  const muted = useSelector(selectors.playerMutedSelector);
+  const podcastId = useSelector(selectors.playerPodcastIdSelector);
+  const podcastTitle = useSelector(selectors.playerPodcastTitleSelector);
+  const episodeId = useSelector(selectors.playerEpisodeIdSelector);
 
   const onCanPlayThrough = () => {
     dispatch(actions.playerCanPlayThrough());

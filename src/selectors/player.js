@@ -1,0 +1,14 @@
+export const playerPlayingSelector = (state) => state.player.playing;
+export const playerEpisodeIdSelector = (state) => state.player.episodeId;
+export const playerPodcastIdSelector = (state) => state.player.podcastId;
+export const playerShowSelector = (state) => state.player.show;
+export const playerLoadingSelector = (state) => state.player.loading;
+export const playerUrlSelector = (state) => state.player.url;
+export const playerTitleSelector = (state) => state.player.title;
+export const playerPodcastTitleSelector = (state) => state.player.podcastTitle;
+export const playerCoverUrl600Selector = (state) => state.player.coverUrl600;
+export const playerCurrentTimeSelector = (state) => state.player.currentTime;
+export const playerMutedSelector = (state) => state.player.muted;
+export const playerDurationSelector = (state) => state.player.duration;
+export const playerPlaybackRateSelector = (state) => state.player.playbackRate;
+export const playerVolumeSelector = (state) => state.player.volume;

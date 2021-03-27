@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { playerPlayControl } from '../../../actions/player';
+import { playerPlayingSelector, playerEpisodeIdSelector } from '../../../selectors/player';
+import { historySelector } from '../../../selectors/history';
 import ProgressRing from '../../ui/progress-ring';
 import { ReactComponent as PlayIcon } from './play.svg';
 import { ReactComponent as PauseIcon } from './pause.svg';
@@ -9,9 +11,9 @@ import './play-control.css';
 
 const PlayControl = ({ selectedEpisodeData, theme }) => {
   const dispatch = useDispatch();
-  const playing = useSelector(state => state.player.playing);
-  const episodeId = useSelector(state => state.player.episodeId);
-  const history = useSelector(state => state.history);
+  const playing = useSelector(playerPlayingSelector);
+  const episodeId = useSelector(playerEpisodeIdSelector);
+  const history = useSelector(historySelector);
   const { episodeId: selectedEpisodeId, duration } = selectedEpisodeData;
   const hasInHistory = history.find(e => e.episodeId === selectedEpisodeId);
   const currentTime = hasInHistory ? hasInHistory.currentTime : 0;

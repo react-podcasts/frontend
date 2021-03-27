@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Range from '../../ui/range';
 import { secondsToHms } from '../../../utils/time';
+import { playerCurrentTimeSelector, playerDurationSelector } from '../../../selectors/player';
+import Range from '../../ui/range';
 import './progress-control.css';
 
 const ProgressControl = React.forwardRef((_, audio) => {
-  const duration = useSelector(state => state.player.duration);
-  const currentTime = useSelector(state => state.player.currentTime);
+  const duration = useSelector(playerDurationSelector);
+  const currentTime = useSelector(playerCurrentTimeSelector);
 
   const handleProgressChange = (event) => {
     const time = event.target.value;
