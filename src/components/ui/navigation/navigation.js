@@ -2,19 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './navigation.css';
 
-const Navigation = () => {
+const Navigation = ({ links }) => {
   return (
     <nav className="navigation">
       <ul className="navigation__list">
         {
-          [
-            { label: 'Home', path: '/' },
-            { label: 'Discover', path: '/discover' },
-            { label: 'New Releases', path: '/new-releases' },
-            { label: 'In Progress', path: '/in-progress' },
-            { label: 'Starred', path: '/starred' },
-            { label: 'Listening History', path: '/listening-history' }
-          ].map(({ label, path }) => {
+          links.map(({ label, path }) => {
             return (
               <li key={path}>
                 <NavLink
