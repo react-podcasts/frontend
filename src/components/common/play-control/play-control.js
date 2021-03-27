@@ -11,7 +11,7 @@ const PlayControl = ({ selectedEpisodeData, theme }) => {
   const dispatch = useDispatch();
   const playing = useSelector(state => state.player.playing);
   const episodeId = useSelector(state => state.player.episodeId);
-  const history = useSelector(state => state.listeningHistory);
+  const history = useSelector(state => state.history);
   const { episodeId: selectedEpisodeId, duration } = selectedEpisodeData;
   const hasInHistory = history.find(e => e.episodeId === selectedEpisodeId);
   const currentTime = hasInHistory ? hasInHistory.currentTime : 0;

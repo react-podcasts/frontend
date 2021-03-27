@@ -7,7 +7,7 @@ import { EpisodeList, EpisodeListItem } from '../../components/episodes/episode-
 import EpisodeCard from '../../components/episodes/episode-card';
 
 const ListeningHistoryPage = () => {
-  const history = useSelector(state => state.listeningHistory);
+  const history = useSelector(state => state.history);
 
   if (history.length === 0) {
     return (

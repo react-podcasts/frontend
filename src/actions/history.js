@@ -1,4 +1,4 @@
-import * as types from '../types/listening-history';
+import * as types from '../types/history';
 
 export const addEpisodeToHistory = (episodeData) => ({
   type: types.HISTORY_ADD_EPISODE,

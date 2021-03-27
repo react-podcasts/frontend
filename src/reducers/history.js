@@ -1,8 +1,8 @@
-import * as types from '../types/listening-history';
+import * as types from '../types/history';
 
 const initialState = [];
 
-export const listeningHistory = (state = initialState, action) => {
+export const history = (state = initialState, action) => {
   switch (action.type) {
     case types.HISTORY_ADD_EPISODE:
       return [

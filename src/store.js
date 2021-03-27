@@ -18,10 +18,10 @@ const store = createStore(rootReducer, preloadedState, composeEnhancers(
 ));
 
 store.subscribe(() => {
-  const { subscriptions, listeningHistory } = store.getState();
+  const { subscriptions, history } = store.getState();
   localStorage.setItem(localStorageKey, JSON.stringify({
     subscriptions,
-    listeningHistory
+    history
   }));
 });
 

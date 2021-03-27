@@ -1,5 +1,5 @@
 import * as types from '../types/player';
-import { addEpisodeToHistory, updateEpisodeTimeInHistory } from './listening-history';
+import { addEpisodeToHistory, updateEpisodeTimeInHistory } from './history';
 
 const loadEpisodeData = (data) => ({
   type: types.PLAYER_LOAD_EPISODE_DATA,
@@ -46,9 +46,9 @@ export const playerEpisodeEnded = () => ({
 
 export const playerPlayControl = (selectedEpisodeData) => (dispatch, getState) => {
   const { episodeId: selectedEpisodeId } = selectedEpisodeData;
-  const { player, listeningHistory } = getState();
+  const { player, history } = getState();
   const { playing, episodeId: playingEpisodeId } = player;
-  const episodeDataFromHistory = listeningHistory.find(e => e.episodeId === selectedEpisodeId);
+  const episodeDataFromHistory = history.find(e => e.episodeId === selectedEpisodeId);
   const currentTime = episodeDataFromHistory ? episodeDataFromHistory.currentTime : 0;
 
   if (playing && playingEpisodeId === selectedEpisodeId) {
