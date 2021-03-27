@@ -4,6 +4,7 @@ import { getDiscoverPageData } from '../../actions/discover-page';
 import Subhead from '../../components/ui/subhead';
 import Heading from '../../components/ui/heading';
 import Loader from '../../components/ui/loader';
+import Blankslate from '../../components/common/blankslate';
 import PodcastsGrid from '../../components/common/podcasts-grid';
 
 const DiscoverPage = () => {
@@ -18,15 +19,18 @@ const DiscoverPage = () => {
     }
   }, [dispatch, podcasts.length]);
 
-  if (loading) {
+  if (error) {
     return (
-      <Loader />
+      <Blankslate
+        title="Oops... something went wrong"
+        text="There was a problem loading the podcasts."
+      />
     );
   }
 
-  if (error) {
+  if (loading) {
     return (
-      <p>Error!</p>
+      <Loader />
     );
   }
 

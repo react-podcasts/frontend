@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getPodcastPageData } from '../../actions/podcast-page';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
 import Loader from '../../components/ui/loader';
+import Blankslate from '../../components/common/blankslate';
 import EpisodeHead from '../../components/episodes/episode-head';
 import EpisodeNotes from '../../components/episodes/episode-notes';
 
@@ -25,7 +26,10 @@ const EpisodePage = () => {
 
   if (error) {
     return (
-      <p>Error!</p>
+      <Blankslate
+        title="Oops... something went wrong"
+        text="There was a problem loading the podcasts."
+      />
     );
   }
 

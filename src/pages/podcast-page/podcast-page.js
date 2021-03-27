@@ -6,6 +6,7 @@ import { subscriptionsChange } from '../../actions/subscriptions';
 import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
 import { podcastPageDataSelector } from '../../selectors/podcast-page';
 import Loader from '../../components/ui/loader';
+import Blankslate from '../../components/common/blankslate';
 import PodcastHead from '../../components/podcast/podcast-head';
 import { EpisodeList, EpisodeListItem } from '../../components/episodes/episode-list';
 import EpisodeCard from '../../components/episodes/episode-card';
@@ -31,7 +32,10 @@ const PodcastPage = () => {
 
   if (error) {
     return (
-      <p>Error!</p>
+      <Blankslate
+        title="Oops... something went wrong"
+        text="There was a problem loading the podcasts."
+      />
     );
   }
 
