@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { playerPlayControl } from '../../../actions/player';
@@ -48,6 +49,20 @@ const PlayControl = ({ selectedEpisodeData, theme }) => {
       />
     </button>
   );
+};
+
+PlayControl.propTypes = {
+  theme: PropTypes.string,
+  selectedEpisodeData: PropTypes.exact({
+    podcastId: PropTypes.string,
+    episodeId: PropTypes.string,
+    podcastTitle: PropTypes.string,
+    title: PropTypes.string,
+    duration: PropTypes.number,
+    published: PropTypes.string,
+    url: PropTypes.string,
+    coverUrl600: PropTypes.string
+  })
 };
 
 export default PlayControl;

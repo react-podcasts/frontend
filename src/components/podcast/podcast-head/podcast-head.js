@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Heading from '../../ui/heading';
 import SubscribeButton from '../subscribe-button';
 import './podcast-head.css';
@@ -36,6 +37,16 @@ const PodcastHead = (props) => {
       </div>
     </div>
   );
+};
+
+PodcastHead.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  coverUrl600: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  subscribed: PropTypes.bool.isRequired,
+  onSubscribe: PropTypes.func.isRequired
 };
 
 export default PodcastHead;

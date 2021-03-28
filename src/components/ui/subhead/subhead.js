@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './subhead.css';
 
 const Subhead = ({ children }) => {
@@ -7,6 +8,10 @@ const Subhead = ({ children }) => {
       {children}
     </div>
   );
+};
+
+Subhead.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default Subhead;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './navigation.css';
 
@@ -23,6 +24,15 @@ const Navigation = ({ links }) => {
       </ul>
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default Navigation;

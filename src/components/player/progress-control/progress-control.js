@@ -20,7 +20,7 @@ const ProgressControl = React.forwardRef((_, audio) => {
         {secondsToHms(currentTime)}
       </span>
       <Range
-        min="0"
+        min={0}
         max={duration}
         step={1}
         value={currentTime}

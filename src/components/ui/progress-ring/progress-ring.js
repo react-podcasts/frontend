@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './progress-ring.css';
 
 const ProgressRing = ({ percent }) => {
@@ -13,6 +14,7 @@ const ProgressRing = ({ percent }) => {
       className="progress-ring"
       width={radius * 2}
       height={radius * 2}
+      aria-hidden="true"
     >
       <circle
         className="progress-ring__progress"
@@ -25,6 +27,10 @@ const ProgressRing = ({ percent }) => {
       />
     </svg>
   );
+};
+
+ProgressRing.propTypes = {
+  percent: PropTypes.number.isRequired
 };
 
 export default ProgressRing;

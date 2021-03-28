@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Heading from '../../ui/heading';
 import './blankslate.css';
 
@@ -11,6 +12,11 @@ const Blankslate = ({ title, text }) => {
       <p className="blankslate__text">{text}</p>
     </div>
   );
+};
+
+Blankslate.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default Blankslate;

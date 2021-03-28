@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { playerPlayControl } from '../../../actions/player';
@@ -50,6 +51,17 @@ const EpisodeHead = (props) => {
       </div>
     </div>
   );
+};
+
+EpisodeHead.propTypes = {
+  podcastId: PropTypes.string,
+  episodeId: PropTypes.string,
+  podcastTitle: PropTypes.string,
+  episodeTitle: PropTypes.string,
+  coverUrl600: PropTypes.string,
+  published: PropTypes.string,
+  url: PropTypes.string,
+  duration: PropTypes.number
 };
 
 export default EpisodeHead;

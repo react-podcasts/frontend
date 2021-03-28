@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ReactComponent as SkipNextIcon } from './skip-next.svg';
 import { ReactComponent as SkipPrevIcon } from './skip-prev.svg';
 import './skip-control.css';
@@ -27,5 +28,9 @@ const SkipControl = React.forwardRef(({ value }, audio) => {
     </button>
   );
 });
+
+SkipControl.propTypes = {
+  value: PropTypes.number.isRequired
+};
 
 export default SkipControl;

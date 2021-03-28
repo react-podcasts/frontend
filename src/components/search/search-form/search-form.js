@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ReactComponent as SearchIcon } from './search.svg';
 import { ReactComponent as SpinnerIcon } from './spinner.svg';
 import { ReactComponent as CloseIcon } from './close.svg';
@@ -52,6 +53,15 @@ const SearchForm = ({ term, loading, onSubmit, onChange, onFocus, onClear }) => 
       </div>
     </form>
   );
+};
+
+SearchForm.propTypes = {
+  term: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired
 };
 
 export default SearchForm;

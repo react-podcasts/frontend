@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { secondsToString } from '../../../utils/time';
@@ -94,6 +95,24 @@ const EpisodeCard = ({ episodeData, noImage, noPodcastLink }) => {
       />
     </div>
   );
+};
+
+EpisodeCard.propTypes = {
+  noImage: PropTypes.bool,
+  noPodcastLink: PropTypes.bool,
+  episodeData: PropTypes.shape({
+    podcastId: PropTypes.string,
+    episodeId: PropTypes.string,
+    title: PropTypes.string,
+    podcastTitle: PropTypes.string,
+    coverUrl600: PropTypes.string,
+    duration: PropTypes.number,
+    published: PropTypes.string,
+    url: PropTypes.string,
+    season: PropTypes.string,
+    number: PropTypes.string,
+    episodeType: PropTypes.string
+  })
 };
 
 export default EpisodeCard;

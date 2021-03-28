@@ -40,9 +40,9 @@ const VolumeControl = React.forwardRef((_, audio) => {
         />
       </button>
       <Range
-        min="0"
-        max="1"
-        step="0.1"
+        min={0}
+        max={1}
+        step={0.1}
         value={volume}
         onChange={onVolumeChange}
       />

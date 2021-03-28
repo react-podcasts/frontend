@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './podcast-card.css';
 
@@ -17,6 +18,14 @@ const PodcastCard = ({ id, title, author, coverUrl100, coverUrl600 }) => {
       <p className="podcast-card__author">{author}</p>
     </Link>
   );
+};
+
+PodcastCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  coverUrl100: PropTypes.string,
+  coverUrl600: PropTypes.string
 };
 
 export default PodcastCard;

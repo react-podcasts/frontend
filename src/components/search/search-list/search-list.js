@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './search-list.css';
 
@@ -26,6 +27,18 @@ const SearchList = ({ results, onItemClick }) => {
       }
     </ul>
   );
+};
+
+SearchList.propTypes = {
+  results: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      coverUrl60: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  onItemClick: PropTypes.func.isRequired
 };
 
 export default SearchList;

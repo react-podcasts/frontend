@@ -7,6 +7,7 @@ const initialState = {
     id: '',
     coverUrl600: '',
     title: '',
+    author: '',
     summary: '',
     link: '',
     episodes: [
@@ -16,7 +17,7 @@ const initialState = {
         published: '',
         description: '',
         url: '',
-        duration: ''
+        duration: 0
       }
     ]
   }
