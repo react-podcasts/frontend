@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { historySelector } from '../../selectors/history';
-import Subhead from '../../components/ui/subhead';
-import Heading from '../../components/ui/heading';
-import Blankslate from '../../components/common/blankslate';
-import { EpisodeList, EpisodeListItem } from '../../components/episodes/episode-list';
-import EpisodeCard from '../../components/episodes/episode-card';
+import { historySelector } from '../selectors/history';
+import Subhead from '../components/ui/subhead';
+import Heading from '../components/ui/heading';
+import Blankslate from '../components/common/blankslate';
+import { EpisodeList, EpisodeListItem } from '../components/episodes/episode-list';
+import EpisodeCard from '../components/episodes/episode-card';
 
 const ListeningHistoryPage = () => {
   const history = useSelector(historySelector);

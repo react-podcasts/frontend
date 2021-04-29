@@ -1,5 +1,5 @@
 import React from 'react';
-import Blankslate from '../../components/common/blankslate';
+import Blankslate from '../components/common/blankslate';
 
 const NewReleasesPage = () => {
   return (

@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getPodcastPageData } from '../../actions/podcast-page';
-import { subscriptionsChange } from '../../actions/subscriptions';
-import { hasInSubscriptionsSelector } from '../../selectors/subscriptions';
-import * as selectors from '../../selectors/podcast-page';
-import Loader from '../../components/ui/loader';
-import Blankslate from '../../components/common/blankslate';
-import PodcastHead from '../../components/podcast/podcast-head';
-import { EpisodeList, EpisodeListItem } from '../../components/episodes/episode-list';
-import EpisodeCard from '../../components/episodes/episode-card';
+import { getPodcastPageData } from '../actions/podcast-page';
+import { subscriptionsChange } from '../actions/subscriptions';
+import { hasInSubscriptionsSelector } from '../selectors/subscriptions';
+import * as selectors from '../selectors/podcast-page';
+import Loader from '../components/ui/loader';
+import Blankslate from '../components/common/blankslate';
+import PodcastHead from '../components/podcast/podcast-head';
+import { EpisodeList, EpisodeListItem } from '../components/episodes/episode-list';
+import EpisodeCard from '../components/episodes/episode-card';
 
 const PodcastPage = () => {
   const { podcastId } = useParams();

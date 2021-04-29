@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDiscoverPageData } from '../../actions/discover-page';
-import * as selectors from '../../selectors/discover-page';
-import Subhead from '../../components/ui/subhead';
-import Heading from '../../components/ui/heading';
-import Loader from '../../components/ui/loader';
-import Blankslate from '../../components/common/blankslate';
-import PodcastsGrid from '../../components/common/podcasts-grid';
+import { getDiscoverPageData } from '../actions/discover-page';
+import * as selectors from '../selectors/discover-page';
+import Subhead from '../components/ui/subhead';
+import Heading from '../components/ui/heading';
+import Loader from '../components/ui/loader';
+import Blankslate from '../components/common/blankslate';
+import PodcastsGrid from '../components/common/podcasts-grid';
 
 const DiscoverPage = () => {
   const dispatch = useDispatch();
